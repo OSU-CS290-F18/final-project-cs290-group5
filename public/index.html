@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+
+<html>
+
+<head>
+
+	<title>Underline</title>
+	<!-- This is a 3rd-party stylesheet to make available the font families to be used for this page ("Roboto" and "Roboto Slab"). -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
+
+    <!-- This 3rd party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
+
+    <script src="index.js" charset="utf-8" defer></script>
+	<link rel="stylesheet" href="style.css">
+	
+	
+</head>
+	
+	<body>
+		<header><strong>UNDERLINE</strong></header>
+		<main class="main">
+			<!--<h2> CHANNELS </h2>-->
+				<!--example code of sidebar, CHANGE LATER
+				<nav class ="navbar"> 
+					<span class = "open-slide">
+						<a href = "#" onclick = "openSlideMenu()"> 
+							<svg width = "30" height = "30">
+								<path d = "MO,5 30,5" stroke = "#fff" stroke-width="5"/>
+								<path d = "MO,14 30,14" stroke = "#fff" stroke-width="5"/>
+								<path d = "MO,23 30,23" stroke = "#fff" stroke-width="5"/>
+							</svg>
+						</a>
+					</span>
+					
+					<ul class = "navbar-nav">
+						<li><a href = "#">CHANNELS</a></li>
+					</ul>
+				</nav>
+				
+				<div id = "side-menu" class = "side-nav">
+					<a href= "#" class = "btn-close" onclick = "closeSlideMenu()">&times;</a>
+					<a href = "#">CHANNELS</a>
+				</div>
+				
+				<div id = "main">
+					<h1> Idk wtf this does but ok </h1>
+				</div>
+				
+				<script>
+					function openSlideMenu(){
+						document.getElementById('side-menu').style.width = '250px';
+						document.getElementById('main').style.marginLeft = '250px';
+					}
+					function closeSlideMenu(){
+						document.getElementById('side-menu').style.width = '0';
+						document.getElementById('main').style.marginLeft = '0';
+					}
+				</script>
+				-->
+				<!--
+				<aside class = "sidebar">
+					<aside class = "channels">
+						<div class = "channel">
+							<div class = "chan-name">
+								<label for="channel-label" class="sidebar"> CHANNELS </label>
+							</div>
+						</div>
+					</aside>
+				</aside>
+				<section id = "chat">
+					<div class = "convo">
+					</div>
+				</section>
+				-->
+				
+				<div class = "sidebar">
+					<a href= "#"> CHANNELS</a>
+				</div>
+				
+	
+				
+				<section id = "chat-input">
+					<div class="message">
+							<div class = "chatbox">
+								<input type = "text" id = "text-input" name = "textn" class = "chatbox" placeholder = "Send a message!">
+						
+							</div>
+					</div>
+					
+					<div class="chat-and-send">
+					</div>
+					
+					<button type="button" id="send"><i class="send-message"></i><strong>SEND</strong></button>
+				</section>
+			
+		</main>
+	</body>
+
+</html>
