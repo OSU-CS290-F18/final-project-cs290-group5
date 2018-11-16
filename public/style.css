@@ -1,0 +1,92 @@
+body{
+	background-color: white;
+	margin: 0px;
+}
+
+header{
+	background-color: #66FFCC;
+	display: flex;
+	height: 40px;
+	 align-items: center;
+	display: flex;
+	position: relative;
+	padding: 10px;
+}
+
+.channel{
+	background-color: #3E3C3C;
+	width: 350px;
+	height: 1000px;
+	flex-wrap: wrap;
+	margin: 0px;
+}
+/*
+.convo{
+	border-radius: 5px;
+	background-color: gray;
+}
+
+.chat-and-send{
+	background-color: #000000;
+	width: 250px;
+	height: 30px;
+	position: fixed;
+	bottom: 30px;
+	right: 100px;
+}
+*/
+
+.chatbox{
+	width: 500px;
+	height: 30px
+	margin: 50px; 
+	border-radius: 8px;
+	padding: 10px;
+}
+
+.message{
+	position: fixed;
+	bottom: 13px;
+	right: 150px
+}
+
+#message{
+	margin: 5px;
+	width: 190px;
+	height: 20px;
+
+}
+
+#send{
+	background-color: #66FFCC;
+	position: fixed;
+	bottom: 25px;
+	right: 30px;
+	border-radius: 8px;
+	border: 0px;
+	width: 100px;
+	height: 35px;
+	color: #3E3C3C;
+}
+
+#send:hover{
+	background-color: #3E3C3C;
+	color: white;
+}
+
+/*more example code*/
+
+
+
+/*
+<aside class = "sidebar">
+					<aside class = "channels">
+						<div class = "channel">
+							<div class = "chan-name">
+								<label for="channel-label" class="sidebar">Channels</label>
+							</div>
+						</div>
+					</aside>
+			</aside>
+
+<input type = "text" id="text-input" name = "text-name" placeholder= "Send a message!">*/
