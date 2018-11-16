@@ -66,11 +66,76 @@ function init_db() {
     return db;
 }
 
+function new_user(db, username) {
+    const stmt = "INSERT INTO active_users(name) VALUES(?);";
+
+    db.run(stmt, username, (err) => {
+        if (err) {
+            return console.error(err.message);
+        }
+        console.log(`added user: ${username}`);
+    });
+}
+
+function remove_user(db, username) {
+    const stmt = "DELETE FROM active_users WHERE name IS ?;";
+
+    db.run(stmt, username, (err) => {
+        if (err) {
+            return console.error(err.message);
+        }
+        console.log(`removed user: ${username}`);
+    });
+}
+
+function new_channel(db, name) {
+    const stmt = "INSERT INTO channles(name) VALUES(?);";
+
+    db.run(stmt, username, (err) => {
+        if (err) {
+            return console.error(err.message);
+        }
+        console.log(`added channel: ${username}`);
+    });
+}
+
+function send_msg(db, channel, user, msg) {
+    let cid, uid;
+
+    let get_cid = "SELECT FROM channels(channel_id) WHERE name IS ?;";
+    let get_uid = "SELECT FROM active_users(user_id) WHERE name IS ?;";
+    let insert_msg = "INSERT INTO messages(channel_id, user_id, message) VALUES(?, ?, ?);"
+
+    db.get(get_cid, channel, (err, row) => {
+        if (err) {
+            return console.error(err);
+        }
+        cid = row.channel_id;
+    }).get(get_uid, user, (err, row) => {
+        if (err) {
+            return console.error(err);
+        }
+        uid = row.user_id;
+    }).run(insert_msg, cid, uid, msg, (err) => {
+        if (err) {
+            return console.error(err);
+        }
+        console.log(`inserted msg: ${msg}`);
+    });
+}
+
+function test(db) {
+    new_user(db, "asdf");
+}
+
 let db = init_db();
+test(db);
+
+// let db_promise = new Promise(init_db).then(() => {  });
 
 db.close((err) => {
     if (err) {
         return console.error(err.message);
     }
     console.log("closing database");
-})
+});
