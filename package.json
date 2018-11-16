@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/OSU-CS290-F18/final-project-cs290-group5#readme",
   "dependencies": {
+    "eslint": "^5.9.0",
     "express": "^4.16.4",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.1.1",
+    "sqlite3": "^4.0.4"
   }
 }
