@@ -10,9 +10,13 @@ header{
 	 align-items: center;
 	display: flex;
 	position: relative;
-	padding: 10px;
+	padding: 10px 10px 10px 10px;
+	margin-left: 160px;
+	font-size: 25px;
+	color: #3E3C3C;
 }
 
+/*
 .channel{
 	background-color: #3E3C3C;
 	width: 350px;
@@ -20,6 +24,32 @@ header{
 	flex-wrap: wrap;
 	margin: 0px;
 }
+*/
+
+.sidebar{
+	height: 1000px;
+	width: 160px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #3E3C3C;
+	padding-top: 20px;
+}
+
+.sidebar a{
+	padding: 6px 20px 20px 6px;
+	text-decoration: none;
+	font-size: 25px;
+	color: white;
+	display: block;
+}
+
+.sidebar a:hover{
+	color: #66FFCC;
+}
+
+
 /*
 .convo{
 	border-radius: 5px;
@@ -37,7 +67,7 @@ header{
 */
 
 .chatbox{
-	width: 500px;
+	width: 800px;
 	height: 30px
 	margin: 50px; 
 	border-radius: 8px;
