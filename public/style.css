@@ -7,13 +7,24 @@ header{
 	background-color: #66FFCC;
 	display: flex;
 	height: 40px;
-	 align-items: center;
+	align-items: center;
 	display: flex;
 	position: relative;
 	padding: 10px 10px 10px 10px;
 	margin-left: 160px;
 	font-size: 25px;
 	color: #3E3C3C;
+}
+
+h2{
+	text-align: center;
+	display: in-line block;
+	position: fixed;
+}
+
+h3{
+	text-align: center;
+	display: in-line block;
 }
 
 /*
@@ -35,6 +46,7 @@ header{
 	left: 0;
 	background-color: #3E3C3C;
 	padding-top: 20px;
+
 }
 
 .sidebar a{
@@ -104,19 +116,85 @@ header{
 	color: white;
 }
 
-/*more example code*/
+/*Username box stuff*/
 
+#backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
 
+#user-popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  overflow: scroll;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-dialog {
+  width: auto;
+  max-width: 600px;
+  min-width: 350px;
+  min-height: 300px;
+  margin: 40px auto;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.modal-header {
+  position: relative;
+  padding: 10px 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.inside-popup {
+  padding: 20px;
+}
+
+.user-input{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+/*
+.user-input > label {
+  font-weight: 600;
+  flex: 1 75px;
+  margin-right: 10px;
+}
 
 /*
-<aside class = "sidebar">
-					<aside class = "channels">
-						<div class = "channel">
-							<div class = "chan-name">
-								<label for="channel-label" class="sidebar">Channels</label>
-							</div>
-						</div>
-					</aside>
-			</aside>
+.post-fieldset {
+  flex: 1 100%;
+  border: 1px solid #ababab;
+}
+*/
+.popup-start {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 10px 20px 10px;
+}
 
-<input type = "text" id="text-input" name = "text-name" placeholder= "Send a message!">*/
+#start {
+  margin-right: 40px;
+}
+
+.error-container {
+  font-family: "Roboto Slab", serif;
+  text-align: center;
+}
