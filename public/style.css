@@ -7,13 +7,24 @@ header{
 	background-color: #66FFCC;
 	display: flex;
 	height: 40px;
-	 align-items: center;
+	align-items: center;
 	display: flex;
 	position: relative;
 	padding: 10px 10px 10px 10px;
 	margin-left: 160px;
 	font-size: 25px;
 	color: #3E3C3C;
+}
+
+h2{
+	text-align: center;
+	display: in-line block;
+	position: fixed;
+}
+
+h3{
+	text-align: center;
+	display: in-line block;
 }
 
 /*
@@ -35,6 +46,7 @@ header{
 	left: 0;
 	background-color: #3E3C3C;
 	padding-top: 20px;
+
 }
 
 .sidebar a{
