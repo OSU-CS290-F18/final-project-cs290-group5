@@ -2,8 +2,10 @@
 _It's not Slack I swear..._
 
 ### HTML Element IDs
+ - New user modal: `new-user-modal`
  - New user modal submit: `new-user-submit`
  - New user text box: `new-user-field`
+ - New channel modal: `new-channel-modal`
  - New channel modal submit: `new-channel-submit`
  - New channel modal cancel: `new-channel-abort`
  - New channel text box: `new-channel-field`
