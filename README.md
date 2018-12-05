@@ -1,19 +1,5 @@
 # Underline
-_it's not Slack I swear..._
-
-### Database Design
-table "channels":
- - channel_id integer pkey
- - name text
-table "users":
- - user_id interger pkey
- - name text
- - active boolean
-table "messages":
- - message_id integer pkey
- - channel_id integer (channels.channel_id fkey)
- - user_id integer (active_users.user_id fkey)
- - message text
+_It's not Slack I swear..._
 
 ### Socket.io design
  - 'new user' client->server
@@ -27,3 +13,17 @@ table "messages":
     - sends no params
  - 'user disconnected' server->client
     - sends one param: username
+
+### Database Design
+ - table "channels":
+     - channel_id integer pkey
+     - name text
+ - table "users":
+     - user_id interger pkey
+     - name text
+     - active boolean
+ - table "messages":
+     - message_id integer pkey
+     - channel_id integer (channels.channel_id fkey)
+     - user_id integer (active_users.user_id fkey)
+     - message text
