@@ -5,6 +5,7 @@ _It's not Slack I swear..._
  - New user modal: `new-user-modal`
  - New user modal submit: `new-user-submit`
  - New user text box: `new-user-field`
+ - New channel popup trigger: `new-channel-trigger`
  - New channel modal: `new-channel-modal`
  - New channel modal submit: `new-channel-submit`
  - New channel modal cancel: `new-channel-abort`
