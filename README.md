@@ -9,6 +9,8 @@ _It's not Slack I swear..._
  - 'new message' client<->server
     - client sends two params: channel, msg
     - server sends three params: channel, username, msg
+ - 'new channel' client<->server
+    - both parties send one param: channel
  - 'disconnect' client->server
     - sends no params
  - 'user disconnected' server->client
@@ -19,11 +21,11 @@ _It's not Slack I swear..._
      - channel_id integer pkey
      - name text
  - table "users":
-     - user_id interger pkey
+     - user_id integer pkey
      - name text
      - active boolean
  - table "messages":
      - message_id integer pkey
      - channel_id integer (channels.channel_id fkey)
-     - user_id integer (active_users.user_id fkey)
+     - user_id integer (users.user_id fkey)
      - message text
