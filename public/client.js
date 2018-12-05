@@ -4,6 +4,7 @@ let newUserSubmit = document.getElementById("new-user-submit");
 let newUserField = document.getElementById("new-user-field");
 
 // Vars for new channel modal
+let newChannelTrigger = document.getElementById("new-channel-trigger");
 let newChannelModal = document.getElementById("new-channel-modal");
 let newChannelSubmit = document.getElementById("new-channel-submit");
 let newChannelAbort = document.getElementById("new-channel-abort");
@@ -24,7 +25,7 @@ let messageList = document.getElementById("message-list");
 const socket = io();
 
 // Data (both are strings)
-let username, activeChannel;
+let currentUsername, activeChannel;
 
 // Clear all rendered messages
 function clearMessages() {
@@ -35,6 +36,15 @@ function clearMessages() {
 
 // Render new message
 function renderMessage(user, msg) {
+    let msgItem = document.createElement("li");
+    msgItem.appendChild(document.createTextNode(msg));
+    //TODO add proper attributes
+    //TODO do something with the user, talk with Paulina
+    messageList.appendChild(msgItem);
+}
+
+// Render status msg (i.e. user join, user leave)
+function renderStatus(msg) {
     let msgItem = document.createElement("li");
     msgItem.appendChild(document.createTextNode(msg));
     //TODO add proper attributes
@@ -83,7 +93,7 @@ function modalToggle(modal) {
 // Handler for setting username
 newUserSubmit.addEventListener("click", () => {
     // get field value
-    username = newUserField.value;
+    currentUsername = newUserField.value;
     newUserField.value = "";
     console.log(`got username: ${username}`);
 
@@ -93,6 +103,12 @@ newUserSubmit.addEventListener("click", () => {
     // broadcast
     socket.emit("new user", username);
 });
+
+// Handler for displaying new channel modal
+newChannelTrigger.addEventListener("click", () => {
+    // toggle modal
+    modalToggle(newChannelModal);
+})
 
 // Handler for making a new channel
 newChannelSubmit.addEventListener("click", () => {
@@ -117,3 +133,41 @@ newChannelAbort.addEventListener("click", () => {
     modalToggle(newChannelModal);
 });
 
+// Handler for sending a new message
+messageSend.addEventListener("click", () => {
+    // get field value
+    let msgText = messageTextBox.value;
+    messageTextBox.value = "";
+    console.log(`sending message: ${msgText}`);
+
+    // broadcast
+    socket.emit("new message", channel, msgText);
+});
+
+// Popup new user on window load
+window.addEventListener("load", () => {
+    modalToggle(newUserModal);
+});
+
+// Send disconnect on window unload
+window.addEventListener("beforeunload", () => {
+    socket.emit("disconnect");
+});
+
+socket.on("new user connected", (username) => {
+    renderStatus(`new user connected: ${username}`);
+});
+
+socket.on("new message", (channel, username, msg) => {
+    if (channel.valueOf() === activeChannel) {
+        renderMessage(username, msg);
+    }
+});
+
+socket.on("new channel", (channel) => {
+    addChannelToSidebar(channel);
+});
+
+socket.on("user disconnected", (username) => {
+    renderStatus(`user disconnected: ${username}`);
+});
