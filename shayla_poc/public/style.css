@@ -46,6 +46,7 @@ h3{
 	left: 0;
 	background-color: #3E3C3C;
 	padding-top: 20px;
+	display: none;
 
 }
 
@@ -139,7 +140,7 @@ h3{
 }
 
 .hidden {
-  display: none;
+  display: none; 
 }
 
 .popup-content{
