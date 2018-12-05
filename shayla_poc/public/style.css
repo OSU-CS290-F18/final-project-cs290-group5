@@ -142,8 +142,9 @@ h3{
   display: none;
 }
 
-.modal-dialog {
-  width: auto;
+.popup-content{
+	display: block;
+	width: auto;
   max-width: 600px;
   min-width: 350px;
   min-height: 300px;
@@ -164,6 +165,10 @@ h3{
 
 .inside-popup {
   padding: 20px;
+}
+
+.user-popup {
+	display: block;
 }
 
 .user-input{
