@@ -30,7 +30,7 @@ startButton.addEventListener('click', ()=>
         userNameContainer.textContent =  userName.value;
         userNameContainer.classList.add("username");
         popUpContainer.appendChild(userNameContainer);
-        //window.appendChild(popUpContainer);
+        window.appendChild(popUpContainer);
         alert("new user added! ", userName.value);
         console.log(userName.value);
     }
