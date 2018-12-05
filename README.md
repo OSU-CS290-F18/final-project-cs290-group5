@@ -1,6 +1,18 @@
 # Underline
 _It's not Slack I swear..._
 
+### HTML Element IDs
+ - New user modal submit: `new-user-submit`
+ - New user text box: `new-user-field`
+ - New channel modal submit: `new-channel-submit`
+ - New channel modal cancel: `new-channel-abort`
+ - New channel text box: `new-channel-field`
+ - Modal backdrop: `modal-backdrop`
+ - Message text box: `message-text-box`
+ - Message send button: `message-send`
+ - Channel `li`: `channels-list`
+ - Message `li`: `message-list`
+
 ### Socket.io design
  - `new user` client->server
     - sends one param: username
