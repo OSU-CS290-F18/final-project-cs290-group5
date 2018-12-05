@@ -1,1 +1,0 @@
-var testJs = require('./index.js');
