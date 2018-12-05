@@ -15,9 +15,15 @@ table "messages":
     message text
 
 Socket.io stuff:
-three rooms:
-    channels
-    users
-    messages
-
-io.emit('room', 'msg'); // maybe?
+rooms:
+    'new user' client->server
+        sends one param: username
+    'new user connected' server->client
+        sends one param: username
+    'new message' client<->server
+        client sends two params: channel, msg
+        server sends three params: channel, username, msg
+    'disconnect' client->server
+        sends no params
+    'user disconnected' server->client
+        sends one param: username
