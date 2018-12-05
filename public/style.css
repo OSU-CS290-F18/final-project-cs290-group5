@@ -41,7 +41,7 @@ h3{
 	display: in-line block;
 }
 
-#sidebar ul li > ul li{
+#channels-list ul li > ul li{
 	position:absolute;
 	left:0;
 	top:92;
@@ -53,7 +53,7 @@ h3{
 	display: block;;
 }
 
-#sidebar a{
+#channels-list a{
 	padding: 6px 20px 20px 6px;
 	text-decoration: none;
 	font-size: 25px;
@@ -61,7 +61,7 @@ h3{
 	display: block;
 }
 
-#sidebar a:hover{
+#channels-list a:hover{
 	color: #66FFCC;
 }
 
@@ -164,7 +164,7 @@ h3{
 
 /*Username box stuff*/
 
-#backdrop {
+#modal-backdrop {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -174,23 +174,17 @@ h3{
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-#user-popup {
+#new-user-modal {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1010;
-  overflow: scroll;
 }
 
-.hidden {
-  display: none; 
-}
-
-.popup-content{
-	display: block;
-	width: auto;
+.mod-content {
+  width: auto;
   max-width: 600px;
   min-width: 350px;
   min-height: 300px;
@@ -209,43 +203,35 @@ h3{
   font-size: 28px;
 }
 
-.inside-popup {
+.username {
   padding: 20px;
 }
-
-.new-iser-field{
-	display: block;
-}
-
-.user-input{
+.username{
   display: flex;
   align-items: center;
   font-size: 20px;
+  margin: 10px 0;
 }
-/*
-.user-input > label {
+
+.username > label {
   font-weight: 600;
   flex: 1 75px;
   margin-right: 10px;
 }
 
-/*
-.post-fieldset {
-  flex: 1 100%;
-  border: 1px solid #ababab;
+.username input {
+  flex: 6 200px;
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid #aaa;
 }
-*/
-.popup-start {
+
+.modal-footer {
   display: flex;
   justify-content: flex-end;
   padding: 10px 10px 20px 10px;
 }
 
-#new-user-submit{
-  margin-right: 40px;
-}
-
-.error-container {
-  font-family: "Roboto Slab", serif;
-  text-align: center;
+#new-user-submit {
+  margin-right: 20px;
 }
