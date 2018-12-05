@@ -25,7 +25,7 @@ class Messages {
 
     sendMsg(channel, user, msg) {
         const get_cid = "SELECT channel_id FROM channels WHERE name = ?;";
-        const get_uid = "SELECT user_id FROM active_users WHERE name = ?;";
+        const get_uid = "SELECT user_id FROM users WHERE name = ? AND active = true;";
         const insert_msg = "INSERT INTO messages(channel_id, user_id, message) VALUES(?, ?, ?);";
 
         let cid, uid;

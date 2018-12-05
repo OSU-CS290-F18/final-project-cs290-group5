@@ -4,24 +4,25 @@ class Users {
     }
 
     createTable() {
-        const stmt = `CREATE TABLE IF NOT EXISTS active_users (
+        const stmt = `CREATE TABLE IF NOT EXISTS users (
             ts DATETIME DEFAULT CURRENT_TIMESTAMP,
             user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL
+            name TEXT NOT NULL,
+            active BOOLEAN NOT NULL DEFAULT true
         );`;
 
         return this.dao.exec(stmt);
     }
 
     addUser(name) {
-        const stmt = `INSERT INTO active_users(name) VALUES(?);`;
+        const stmt = `INSERT INTO users(name) VALUES(?);`;
         const params = [name];
 
         return this.dao.exec(stmt, params);
     }
 
     removeUser(name) {
-        const stmt = `DELETE FROM active_users WHERE name = ?;`;
+        const stmt = `UPDATE users SET active = false WHERE name = ? AND active = true;`;
         const params = [name];
         
         return this.dao.exec(stmt, params);

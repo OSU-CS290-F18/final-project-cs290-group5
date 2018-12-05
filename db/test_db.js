@@ -25,6 +25,12 @@ async function test() {
     .then(() => {
         return messages.sendMsg("my_channel", "user1", "test message 1234");
     })
+    .then(() => {
+        return users.removeUser("user1");
+    })
+    .then(() => {
+        return users.addUser("user2");
+    })
 }
 
 test();
