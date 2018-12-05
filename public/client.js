@@ -65,53 +65,55 @@ function setActiveChannel(name) {
     activeChannel = name;
 }
 
+// Toggle a modal
+function modalToggle(modal) {
+    if (modal.style.display.indexOf("none") != -1) {
+        // modal is currently visible
+        // hide dat boi
+        modal.style.display = "none";
+        modalBackdrop.style.display = "none";
+    } else {
+        // modal is not currently visible
+        // show dat boi
+        modal.style.display = "block";
+        modalBackdrop.style.display = "block";
+    }
+}
+
 // Handler for setting username
 newUserSubmit.addEventListener("click", () => {
     // get field value
     username = newUserField.value;
+    newUserField.value = "";
     console.log(`got username: ${username}`);
 
     // close modal
-    
+    modalToggle(newUserModal);
+
+    // broadcast
+    socket.emit("new user", username);
 });
 
-// OLD CODE
+// Handler for making a new channel
+newChannelSubmit.addEventListener("click", () => {
+    // get field value
+    let newChannelName = newChannelField.value;
+    newChannelField.value = "";
+    console.log(`new channel made: ${newChannelName}`);
 
-let sendButton = document.getElementById('send');
-let message = document.getElementById("text-input");
-let newUserButton = document.getElementById("new-user");
-let startButton = document.getElementById("start");
-let userName = document.getElementById("user-input");
-let window = document.getElementById("chat-input");
+    // close modal
+    modalToggle(newChannelModal);
 
-newUserButton.addEventListener('click', () => {
-    document.getElementById('backdrop').classList.toggle("hidden");
-    document.getElementById('user-popup').classList.toggle("hidden");
+    // broadcast
+    socket.emit("new channel", newChannelName);
 });
 
-startButton.addEventListener('click', () => {
-    if (userName.value == "") {
-        alert("Please enter username");
-    } else {
-        let popUpContainer = document.createElement("div");
-        popUpContainer.classList.add("inside-popup");
-        let userNameContainer = document.createElement("div");
-        userNameContainer.textContent =  userName.value;
-        userNameContainer.classList.add("username");
-        popUpContainer.appendChild(userNameContainer);
-        window.appendChild(popUpContainer);
-        alert("new user added! ", userName.value);
-        console.log(userName.value);
-    }
-    document.getElementById('backdrop').classList.toggle("hidden");
-    document.getElementById('user-popup').classList.toggle("hidden");
+// Handler for cancelling the creation of a new channel
+newChannelAbort.addEventListener("click", () => {
+    // clear field
+    newChannelField.value = "";
+
+    // close modal
+    modalToggle(newChannelModal);
 });
 
-sendButton.addEventListener('click', () => {
-    let messageContainer = document.createElement('div');
-    messageContainer.classList.add("chat-input");
-    messageContainer.textContent = message.value;
-    let messageContents = document.getElementsByClassName("chat-and-send");
-    messageContents[0].appendChild(messageContainer);
-    message.value = "";
-}); 
