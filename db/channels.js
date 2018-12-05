@@ -4,7 +4,8 @@ class Channels {
     }
 
     createTable() {
-        const stmt = `CREATE TABLE channels (
+        const stmt = `CREATE TABLE IF NOT EXISTS channels (
+            ts DATETIME DEFAULT CURRENT_TIMESTAMP,
             channel_id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL
         );`;

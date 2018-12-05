@@ -33,6 +33,7 @@ class DAO {
                     console.error(err);
                     reject(err);
                 } else {
+                    console.log("(DAO.get) Received data:", result);
                     resolve(result);
                 }
             });

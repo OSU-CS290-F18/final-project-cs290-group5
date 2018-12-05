@@ -4,7 +4,8 @@ class Users {
     }
 
     createTable() {
-        const stmt = `CREATE TABLE active_users (
+        const stmt = `CREATE TABLE IF NOT EXISTS active_users (
+            ts DATETIME DEFAULT CURRENT_TIMESTAMP,
             user_id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL
         );`;

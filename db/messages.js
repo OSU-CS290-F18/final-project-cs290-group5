@@ -4,7 +4,8 @@ class Messages {
     }
 
     createTable() {
-        const stmt = `CREATE TABLE messages (
+        const stmt = `CREATE TABLE IF NOT EXISTS messages (
+            ts DATETIME DEFAULT CURRENT_TIMESTAMP,
             message_id INTEGER PRIMARY KEY,
             channel_id INTEGER NOT NULL,
             user_id INTEGER NOT NULL,
@@ -23,21 +24,20 @@ class Messages {
     }
 
     sendMsg(channel, user, msg) {
-        const get_cid = "SELECT FROM channels(channel_id) WHERE name IS ?;";
-        const get_uid = "SELECT FROM active_users(user_id) WHERE name IS ?;";
+        const get_cid = "SELECT channel_id FROM channels WHERE name = ?;";
+        const get_uid = "SELECT user_id FROM active_users WHERE name = ?;";
         const insert_msg = "INSERT INTO messages(channel_id, user_id, message) VALUES(?, ?, ?);";
 
         let cid, uid;
 
-        return this.dao.get(get_cid)
+        return this.dao.get(get_cid, channel)
         .then((row) => {
             cid = row.channel_id;
-
-            return this.dao.get(get_uid);
+            return this.dao.get(get_uid, user);
         })
         .then((row) => {
             uid = row.user_id;
-            params = [cid, uid, msg];
+            let params = [cid, uid, msg];
             return this.dao.exec(insert_msg, params);
         });
     }
