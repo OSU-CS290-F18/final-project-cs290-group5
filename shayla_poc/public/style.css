@@ -3,20 +3,34 @@ body{
 	margin: 0px;
 }
 
-header{
+.banner{
 	background-color: #66FFCC;
 	display: flex;
-	height: 40px;
-	align-items: center;
-	display: flex;
-	position: relative;
-	padding: 10px 10px 10px 10px;
+	height: 50px;
+	display: inline-block;
+	position: fixed;
+	padding: 20px;
 	margin-left: 160px;
-	font-size: 25px;
 	color: #3E3C3C;
+	width: 100%;
+	margin: auto;
+
+}
+
+h1{
+	font-style: oblique;
+	font-size: 33px;
+	text-align: center;
+	
+	/*
+	top: 18px;
+	position: fixed;
+	padding: 20px;
+	*/
 }
 
 h2{
+	font-style: oblique;
 	text-align: center;
 	display: in-line block;
 	position: fixed;
@@ -27,16 +41,35 @@ h3{
 	display: in-line block;
 }
 
-/*
-.channel{
+#sidebar ul li > ul li{
+	position:absolute;
+	left:0;
+	top:92;
+	bottom:0;
+	width:178px;
+	z-index: 1;
 	background-color: #3E3C3C;
-	width: 350px;
-	height: 1000px;
-	flex-wrap: wrap;
-	margin: 0px;
+	padding-top: 20px;
+	display: none;
 }
-*/
 
+#sidebar a{
+	padding: 6px 20px 20px 6px;
+	text-decoration: none;
+	font-size: 25px;
+	color: black;
+	display: block;
+}
+
+#sidebar a:hover{
+	color: #66FFCC;
+}
+
+#chat-input{
+	padding-right: 50px;
+}
+
+/*
 .sidebar{
 	height: 1000px;
 	width: 160px;
@@ -49,21 +82,6 @@ h3{
 	display: none;
 
 }
-
-.sidebar a{
-	padding: 6px 20px 20px 6px;
-	text-decoration: none;
-	font-size: 25px;
-	color: white;
-	display: block;
-}
-
-.sidebar a:hover{
-	color: #66FFCC;
-}
-
-
-/*
 .convo{
 	border-radius: 5px;
 	background-color: gray;
@@ -77,14 +95,25 @@ h3{
 	bottom: 30px;
 	right: 100px;
 }
+.channel{
+	background-color: #3E3C3C;
+	width: 350px;
+	height: 1000px;
+	flex-wrap: wrap;
+	margin: 0px;
+}
 */
 
 .chatbox{
-	width: 800px;
-	height: 30px;
-	margin: 50px; 
+	width: 750px;
+	height: 15px;
+	margin: 7px; 
 	border-radius: 8px;
 	padding: 10px;
+	bottom: 4px;
+	position: fixed;
+	bottom: 15px;
+	right: 145px;
 }
 
 .message{
@@ -116,6 +145,25 @@ h3{
 	background-color: #3E3C3C;
 	color: white;
 }
+
+#new-chan{
+	background-color: #66FFCC;
+	position: fixed;
+	bottom: 25px;
+	left: 30px;
+	border-radius: 8px;
+	border: 0px;
+	width: 100px;
+	height: 35px;
+	color: #3E3C3C;
+}
+
+#new-chan:hover{
+	background-color: #3E3C3C;
+	color: white;
+}
+
+
 
 /*Username box stuff*/
 

@@ -18,18 +18,18 @@
 	<!-- <script>
 		var socket = io();
 	</script> -->
-	<header><strong>UNDERLINE</strong></header>
+	<!-- <header><strong>UNDERLINE</strong></header> -->
 </head>
 	
 	<body>
-		
+	
+	<header>
+		<div class="banner">
+			<h1><strong>UNDERLINE</strong></h1>
+		</div>
+	</header>
+	
 		<main class="main">
-				
-				<div class = "sidebar">
-					<a href= "#"> CHANNELS</a>
-					<button type="button" id="new-channel"><i class="new-user-channel"></i>NEW CHANNEL</button>
-				</div>
-				
 				
 				<section id = "chat-input">
 					<div class="message">
@@ -49,10 +49,52 @@
 						<input type="text" id="user-input"></input>
 						<button type="button" id="new-user"><i class="new-user-btn"></i>ENTER</button>
 					</div>
+					
+					
+				</section>
+		</main>
+		
+		<nav id = "sidebar">
+			<ul><a href= "#"> CHANNELS</a>
+		
+				<li><a href = "#"> channel test here</a></li>
+		
+			</ul>
+		</nav>
+
+		
+		
+				
+		<button type="button" id="new-chan"><i class="new-chann-btn"></i><strong>+ CHANNEL</strong></button>
+		<!-- 
+		<div class = "sidebar">
+			<a href= "#"> CHANNELS</a>
+		</div>
+		<main class="main">
+				
+				<section id = "chat-input">
+					<div class="message">
+							<div class = "chatbox">
+								<input type = "text" id = "text-input" name = "textn" class = "chatbox" placeholder = "Send a message!">
+								<div class="chat-and-send">
+							
+								</div>
+							</div>
+					</div>
+					
+					<button type="button" id="send"><i class="send-message"></i><strong>SEND</strong></button>
+					
 				</section>
 				
 				
-				<!-- <button type="button" id="new-user"><i class="new-user-btn"></i>NEW USER</button>
+
+				<!-- 
+				<div class="username">
+						<input type="text" id="user-input"></input>
+					</div>
+				<label for="user-input">Username</label>
+				<button type="button" id="new-user"><i class="new-user-btn"></i>ENTER</button>
+				<button type="button" id="new-user"><i class="new-user-btn"></i>NEW USER</button>
 				<div id="popup" class="hidden"></div>
 				<div id="user-popup" class="hidden">
 						<div class = "popup-content">
@@ -72,11 +114,15 @@
 							</div>
 							
 							</div>
+							<!-- <div class = "sidebar">
+					<ul><a href= "#"> CHANNELS</a>
+					</ul>
+		</div> -->
+
 							
-							 
-						</div>
-					</div> -->
-		</main>
+		
+		
+
 	</body>
 
 </html>
