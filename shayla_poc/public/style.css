@@ -46,6 +46,7 @@ h3{
 	left: 0;
 	background-color: #3E3C3C;
 	padding-top: 20px;
+	display: none;
 
 }
 
@@ -139,11 +140,12 @@ h3{
 }
 
 .hidden {
-  display: none;
+  display: none; 
 }
 
-.modal-dialog {
-  width: auto;
+.popup-content{
+	display: block;
+	width: auto;
   max-width: 600px;
   min-width: 350px;
   min-height: 300px;
@@ -164,6 +166,10 @@ h3{
 
 .inside-popup {
   padding: 20px;
+}
+
+.user-popup {
+	display: block;
 }
 
 .user-input{

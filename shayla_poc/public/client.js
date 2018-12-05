@@ -5,20 +5,26 @@ var newUserButton = document.getElementById("new-user");
 var startButton = document.getElementById("start");
 var userName = document.getElementById("user-input");
 var window = document.getElementById("chat-input");
+var body = document.body;
 //var newChannelButton = document.getElementById()
-//var userName = document.getElementById("user-input");
+var userName = document.getElementById("user-input");
 /* var chat = io.of('chat');
 var user = io.of('users');
 var channel = io.of('channels'); */
 //document.getElementById('backdrop').classList.toggle("hidden");
-
+/* body.addEventListener('click', ()=>
+{
+    document.getElementById('popup').classList.add("hidden");
+    document.getElementById('user-popup').classList.add("hidden");
+});
 newUserButton.addEventListener('click', ()=>
 {
-    document.getElementById('backdrop').classList.toggle("hidden");
-    document.getElementById('user-popup').classList.toggle("hidden");
-});
+    //popup.style.display = "block";
+    document.getElementById('popup').classList.remove("hidden");
+    document.getElementById('user-popup').classList.remove("hidden"); 
+}); */
 
-startButton.addEventListener('click', ()=>
+newUserButton.addEventListener('click', ()=>
 {
     if(userName.value = ""){
         alert("Please enter username");
@@ -30,7 +36,7 @@ startButton.addEventListener('click', ()=>
         userNameContainer.textContent =  userName.value;
         userNameContainer.classList.add("username");
         popUpContainer.appendChild(userNameContainer);
-        window.appendChild(popUpContainer);
+        //window.appendChild(popUpContainer);
         alert("new user added! ", userName.value);
         console.log(userName.value);
     }
@@ -38,7 +44,7 @@ startButton.addEventListener('click', ()=>
     document.getElementById('backdrop').classList.toggle("hidden");
     document.getElementById('user-popup').classList.toggle("hidden");
 
-});
+}); 
 
 
 

@@ -18,11 +18,11 @@
 	<!-- <script>
 		var socket = io();
 	</script> -->
-	
+	<header><strong>UNDERLINE</strong></header>
 </head>
 	
 	<body>
-		<header><strong>UNDERLINE</strong></header>
+		
 		<main class="main">
 				
 				<div class = "sidebar">
@@ -44,32 +44,38 @@
 					</div>
 					
 					<button type="button" id="send"><i class="send-message"></i><strong>SEND</strong></button>
+					<div class="username">
+						<label for="user-input">Username</label>
+						<input type="text" id="user-input"></input>
+						<button type="button" id="new-user"><i class="new-user-btn"></i>ENTER</button>
+					</div>
 				</section>
 				
 				
-				<button type="button" id="new-user"><i class="new-user-btn"></i>NEW USER</button>
-				<div id="backdrop" class="hidden"></div>
-					<div id="user-popup" class="hidden">
-				</div>
-				<!--FOR SHAYLA: the black backdrop show up when you work on this-->
-
-				<div class="modal-header">
-					<h3>Enter a username</h3>
-				</div>
-
-				<div class="inside-popup">
-
-				<div class="username">
-					<label for="user-input">Username</label>
-					<input type="text" id="user-input"></input>
-				</div>
-				
-				</div>
-				
-				 <div class="popup-start">
-					<button type="button" id="start" class="action-button">START </button>
-				</div>
+				<!-- <button type="button" id="new-user"><i class="new-user-btn"></i>NEW USER</button>
+				<div id="popup" class="hidden"></div>
+				<div id="user-popup" class="hidden">
+						<div class = "popup-content">
+							<div class="modal-header">
+								<h3>Enter a username</h3>
+							</div>
 			
+							<div class="inside-popup">
+								
+							<div class="username">
+								<label for="user-input">Username</label>
+								<input type="text" id="user-input"></input>
+							</div>
+							<div class="popup-start">
+								<button type="button" id="start" class="action-button">START </button>
+								<span class = "close">&times;</span>
+							</div>
+							
+							</div>
+							
+							 
+						</div>
+					</div> -->
 		</main>
 	</body>
 
