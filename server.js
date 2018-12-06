@@ -18,16 +18,10 @@ const messages = new Messages(dao);
 //get the files from public folder
 app.use(express.static('public'));
 
-//get error page
-app.get("*", function (req, res, next){
-    res.status(404);
-    res.sendFile(__dirname + '/public/404.html'); //bring to 404 page
-    console.log("404 page called");
-});
-
 //Socket.io
 io.on('connection', (socket) => {
     // this gets called everytime a new client is connected
+    console.log("new socket connection");
 
     // user connected, store & broadcast
     var added = false;
@@ -91,6 +85,12 @@ io.on('connection', (socket) => {
     });
 });
 
+//get error page
+app.get("*", function (req, res, next){
+    console.error("sending 404 for", req.url);
+    res.status(404);
+    res.sendFile(__dirname + '/public/404.html'); //bring to 404 page
+});
 
 console.log("== Initalizing database");
 users.createTable()

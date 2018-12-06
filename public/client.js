@@ -81,7 +81,6 @@ function setActiveChannel(name) {
 
 // Toggle a modal
 function modalToggle(modal) {
-    console.log(modal);
     if (modalVisible) {
         console.log("hiding modal");
         // modal is currently visible
@@ -157,7 +156,7 @@ messageSend.addEventListener("click", () => {
 
 // Popup new user on window load
 window.addEventListener("load", () => {
-    modalToggle(newUserModal);
+    // modalToggle(newUserModal);
 });
 
 // Send disconnect on window unload
