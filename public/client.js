@@ -109,7 +109,7 @@ newUserSubmit.addEventListener("click", () => {
     modalToggle(newUserModal);
 
     // broadcast
-    socket.emit("new user", username);
+    socket.emit("new user", currentUsername);
 });
 
 // Handler for displaying new channel modal
@@ -124,6 +124,9 @@ newChannelSubmit.addEventListener("click", () => {
     let newChannelName = newChannelField.value;
     newChannelField.value = "";
     console.log(`new channel made: ${newChannelName}`);
+
+    // render new channel
+    addChannelToSidebar(newChannelName);    
 
     // close modal
     modalToggle(newChannelModal);

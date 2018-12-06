@@ -13,8 +13,8 @@ _It's not Slack I swear..._
  - Modal backdrop: `modal-backdrop`
  - Message text box: `message-text-box`
  - Message send button: `message-send`
- - Channel `li`: `channels-list`
- - Message `li`: `message-list`
+ - Channel `ul`: `channels-list`
+ - Message `ul`: `message-list`
 
 ### Socket.io design
  - `new user` client->server
