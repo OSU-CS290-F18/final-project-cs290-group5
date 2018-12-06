@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
         })
         .catch((err) => {
             console.error("Error storing new user in database", JSON.stringify(err));
-        })
+        });
     });
 
     // user made a new channel, store & broadcast
@@ -68,7 +68,7 @@ io.on('connection', (socket) => {
         })
         .catch((err) => {
             console.error("Error storing msg in database", JSON.stringify(err));
-        })
+        });
     });
 
     // user disconnected, store & broadcast
@@ -81,7 +81,7 @@ io.on('connection', (socket) => {
         })
         .catch(() => {
             console.error("Error removing user in database", JSON.stringify(err));
-        })
+        });
     });
 });
 

@@ -49,7 +49,6 @@ function renderStatus(msg) {
     let msgItem = document.createElement("li");
     msgItem.appendChild(document.createTextNode(msg));
     //TODO add proper attributes
-    //TODO do something with the user, talk with Paulina
     messageList.appendChild(msgItem);
 }
 
@@ -164,20 +163,24 @@ window.addEventListener("beforeunload", () => {
     socket.emit("disconnect");
 });
 
+// Show status when new user joins
 socket.on("new user connected", (username) => {
     renderStatus(`new user connected: ${username}`);
 });
 
+// Show new message if it's in our channel
 socket.on("new message", (channel, username, msg) => {
     if (channel.valueOf() === activeChannel) {
         renderMessage(username, msg);
     }
 });
 
+// Add a new channel
 socket.on("new channel", (channel) => {
     addChannelToSidebar(channel);
 });
 
+// Show status when user leaves
 socket.on("user disconnected", (username) => {
     renderStatus(`user disconnected: ${username}`);
 });
