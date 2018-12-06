@@ -19,6 +19,14 @@ class Channels {
 
         return this.dao.exec(stmt, params);
     }
+
+    channelExists(name) {
+        const stmt = `SELECT * FROM channels WHERE name = ?;`;
+        const params = [name];
+
+        let row = this.dao.get(stmt, params);
+        return row != undefined;
+    }
 }
 
 module.exports = Channels;

@@ -103,11 +103,10 @@ newUserSubmit.addEventListener("click", () => {
     newUserField.value = "";
     console.log(`got username: ${currentUsername}`);
 
-    // close modal
-    modalToggle(newUserModal);
+    // validate
+    socket.emit("username available", currentUsername);
 
-    // broadcast
-    socket.emit("new user", currentUsername);
+    // rest of handler in socket.on("username check ret")
 });
 
 // Handler for displaying new channel modal
@@ -123,14 +122,8 @@ newChannelSubmit.addEventListener("click", () => {
     newChannelField.value = "";
     console.log(`new channel made: ${newChannelName}`);
 
-    // render new channel
-    addChannelToSidebar(newChannelName);    
-
-    // close modal
-    modalToggle(newChannelModal);
-
-    // broadcast
-    socket.emit("new channel", newChannelName);
+    // validate
+    socket.emit("channel available", channel);
 });
 
 // Handler for cancelling the creation of a new channel
@@ -161,6 +154,35 @@ window.addEventListener("load", () => {
 // Send disconnect on window unload
 window.addEventListener("beforeunload", () => {
     socket.emit("disconnect");
+});
+
+// Finish handling setting the username when validation comes back
+socket.on("username check ret", (available) => {
+    if (available) {
+        // close modal
+        modalToggle(newUserModal);
+
+        // broadcast
+        socket.emit("new user", currentUsername);
+    } else {
+        alert("Username unavailable");
+    }
+});
+
+// Finish handling creating a channel when validation comes back
+socket.on("channel check ret", (available) => {
+    if (available) {
+        // render new channel
+        addChannelToSidebar(newChannelName);    
+
+        // close modal
+        modalToggle(newChannelModal);
+
+        // broadcast
+        socket.emit("new channel", newChannelName);
+    } else {
+        alert("Channel name unavailable");
+    }
 });
 
 // Show status when new user joins

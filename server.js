@@ -23,6 +23,19 @@ io.on('connection', (socket) => {
     // this gets called everytime a new client is connected
     console.log("new socket connection");
 
+    // client requested username check
+    socket.on('username available', (username) => {
+        if (added) return;
+
+        if (!users.userExists(username)) {
+            // user doesn't exist, send back all good
+            socket.emit("username check ret", true);
+        } else {
+            // user doesn't exist, send back no beuno
+            socket.emit("username check ret", false);
+        }
+    });
+
     // user connected, store & broadcast
     var added = false;
     socket.on('new user', (username) => {
@@ -40,6 +53,19 @@ io.on('connection', (socket) => {
         .catch((err) => {
             console.error("Error storing new user in database", JSON.stringify(err));
         });
+    });
+
+    // client requested username check
+    socket.on('channel available', (channel) => {
+        if (added) return;
+
+        if (!channels.channelExists(channel)) {
+            // channel doesn't exist, send back all good
+            socket.emit("channel check ret", true);
+        } else {
+            // channel doesn't exist, send back no beuno
+            socket.emit("channel check ret", false);
+        }
     });
 
     // user made a new channel, store & broadcast
