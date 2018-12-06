@@ -10,8 +10,9 @@ let newChannelSubmit = document.getElementById("new-channel-submit");
 let newChannelAbort = document.getElementById("new-channel-abort");
 let newChannelField = document.getElementById("new-channel-field");
 
-// Modal backdrop var
-let modalBackrdop = document.getElementById("modal-backdrop");
+// Modal vars
+let modalBackdrop = document.getElementById("modal-backdrop");
+let modalVisible = true;
 
 // Vars for sending a message
 let messageTextBox = document.getElementById("message-text-box");
@@ -73,21 +74,28 @@ function setActiveChannel(name) {
         }
     }
     activeChannel = name;
+
+    // remove all existing messages from the DOM
+    clearMessages();
 }
 
 // Toggle a modal
 function modalToggle(modal) {
-    if (modal.style.display.indexOf("none") != -1) {
+    console.log(modal);
+    if (modalVisible) {
+        console.log("hiding modal");
         // modal is currently visible
         // hide dat boi
         modal.style.display = "none";
         modalBackdrop.style.display = "none";
     } else {
+        console.log("showing modal");
         // modal is not currently visible
         // show dat boi
         modal.style.display = "block";
         modalBackdrop.style.display = "block";
     }
+    modalVisible = !modalVisible;
 }
 
 // Handler for setting username
@@ -95,7 +103,7 @@ newUserSubmit.addEventListener("click", () => {
     // get field value
     currentUsername = newUserField.value;
     newUserField.value = "";
-    console.log(`got username: ${username}`);
+    console.log(`got username: ${currentUsername}`);
 
     // close modal
     modalToggle(newUserModal);
