@@ -30,6 +30,8 @@ _It's not Slack I swear..._
     - sends no params
  - `user disconnected` server->client
     - sends one param: username
+ - `db error` server->client
+    - sends one param: msg
 
 ### Database Design
  - table `channels`:
