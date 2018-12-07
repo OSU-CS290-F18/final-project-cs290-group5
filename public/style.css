@@ -147,7 +147,12 @@ ul {
 }
 
 #message-list{
-	width: 100%
+	
+}
+
+.message-container {
+	float:right;
+	
 }
 
 
@@ -166,18 +171,6 @@ ul {
 	float: right;
 
 }
-
-.message-container {
-	float:right;
-	
-}
-
-#message {
-	margin: 5px;
-	width: 190px;
-	height: 20px;
-}
-
 
 #message-send {
 	background-color: #66FFCC;
@@ -234,6 +227,7 @@ ul {
 	margin: 40px auto;
 	background-color: #fff;
 	border-radius: 15px;
+	margin-top: 200px;
 }
 
 .modal-header {
@@ -284,7 +278,14 @@ ul {
 }
 
 #new-user-submit {
-	margin-right: 30px;
+	margin-right: 20px;
+	background-color: #66FFCC;
+	border-radius: 8px;
+	border: 0px;
+	width: 100px;
+	height: 35px;
+	color: #3E3C3C;
+	font-weight: bold;
 	
 }
 
@@ -305,10 +306,12 @@ ul {
 	width: 250px;
 	height: 35px;
 	color: #3E3C3C;
+	
 }
 
 #new-channel-trigger:hover {
 	color: white;
+	font-weight: bold;
 }
 
 #modal-backdrop {
@@ -375,9 +378,22 @@ ul {
 
 #new-channel-submit {
 	margin-right: 20px;
+	background-color: #66FFCC;
+	border-radius: 8px;
+	border: 0px;
+	width: 100px;
+	height: 35px;
+	color: #3E3C3C;
+	font-weight: bold;
 }
 
-#modal-cancel {
-	color: #333;
-	background-color: #fff;
+#new-channel-abort {
+	margin-right: 20px;
+	background-color: #3E3C3C;
+	border-radius: 8px;
+	border: 0px;
+	width: 100px;
+	height: 35px;
+	color: white;
+	
 }
