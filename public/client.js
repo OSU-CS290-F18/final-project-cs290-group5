@@ -35,6 +35,10 @@ function clearMessages() {
     }
 }
 
+function scrollMessageList() {
+    messageList.scrollTo(0,messageList.scrollHeight);
+}
+
 // Render new message
 function renderMessage(user, msg) {
     var ts = new Date();
@@ -43,7 +47,7 @@ function renderMessage(user, msg) {
     console.log(`rendering ${msg}`);
     msgItem.appendChild(document.createTextNode(msg));
     messageList.appendChild(msgItem);
-
+    scrollMessageList();
 }
 
 // Render status msg (i.e. user join, user leave)
@@ -53,6 +57,7 @@ function renderStatus(msg) {
     italic.appendChild(document.createTextNode(msg));
     msgItem.appendChild(italic);
     messageList.appendChild(msgItem);
+    scrollMessageList();
 }
 
 // Render new channel in sidebar
@@ -276,7 +281,7 @@ socket.on("old messages", (data) => {
     for (let i = 0; i < data.length; i++) {
         renderMessage(data[i].username, data[i].message);
     }
-})
+});
 
 // Show status when user leaves
 socket.on("user disconnected", (username) => {
