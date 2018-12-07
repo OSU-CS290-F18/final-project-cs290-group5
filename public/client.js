@@ -117,7 +117,7 @@ channelList.addEventListener("click", (e) => {
 });
 
 // Handler for setting username
-newUserSubmit.addEventListener("click", () => {
+function newUserSubmitHandler() {
     // get field value
     currentUsername = newUserField.value;
     if (currentUsername == "") {
@@ -131,7 +131,8 @@ newUserSubmit.addEventListener("click", () => {
     socket.emit("username available", currentUsername);
 
     // rest of handler in socket.on("username check ret")
-});
+}
+newUserSubmit.addEventListener("click", newUserSubmitHandler);
 
 // Handler for displaying new channel modal
 newChannelTrigger.addEventListener("click", () => {
@@ -140,7 +141,7 @@ newChannelTrigger.addEventListener("click", () => {
 });
 
 // Handler for making a new channel
-newChannelSubmit.addEventListener("click", () => {
+function newChannelSubmitHandler() {
     // get field value
     let newChannelName = newChannelField.value;
     newChannelField.value = "";
@@ -150,7 +151,8 @@ newChannelSubmit.addEventListener("click", () => {
     socket.emit("channel available", newChannelName);
 
     // rest of handler in socket.on("channel check ret")
-});
+}
+newChannelSubmit.addEventListener("click", newChannelSubmitHandler);
 
 // Handler for cancelling the creation of a new channel
 newChannelAbort.addEventListener("click", () => {
@@ -162,7 +164,6 @@ newChannelAbort.addEventListener("click", () => {
 });
 
 // Handler for sending a new message
-// messageSend.addEventListener("click", () => {
 function messageSendHandler() {
     // get field value
     let msgText = messageTextBox.value;
@@ -172,13 +173,40 @@ function messageSendHandler() {
 
     // broadcast
     socket.emit("new message", activeChannel, msgText);
+
+    // set focus
+    messageTextBox.focus();
 }
-// });
+
+// Set focus to the username text box on window load
+window.addEventListener("load", () => {
+    newUserField.focus();
+});
 
 // Send disconnect on window unload
 window.addEventListener("beforeunload", () => {
     socket.emit("disconnect");
     console.log("beforeunload is fired");
+});
+
+// Add keyup listener to allow enter key to submit data
+window.addEventListener("keyup", (event) => {
+    if (event.keyCode === 13) {
+        // got enter key
+        if (!currentUsername) {
+            // user submitted username
+            newUserSubmitHandler();
+            console.log("enter key; new user");
+        } else if (modalVisible) {
+            // user submitted new channel
+            newChannelSubmitHandler();
+            console.log("enter key; new channel");
+        } else {
+            // user submitted message
+            messageSendHandler();
+            console.log("enter key; send msg");
+        }
+    }
 });
 
 // Finish handling setting the username when validation comes back
@@ -189,8 +217,12 @@ socket.on("username check ret", (available) => {
 
         // broadcast
         socket.emit("new user", currentUsername);
+
+        // set focus
+        messageTextBox.focus();
     } else {
         alert("Username unavailable");
+        newUserField.focus();
     }
 });
 
@@ -205,8 +237,12 @@ socket.on("channel check ret", (newChannelName, available) => {
 
         // broadcast
         socket.emit("new channel", newChannelName);
+
+        // set focus
+        messageTextBox.focus();
     } else {
         alert("Channel name unavailable");
+        newChannelField.focus();
     }
 });
 
