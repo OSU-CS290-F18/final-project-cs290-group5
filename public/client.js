@@ -39,7 +39,7 @@ function clearMessages() {
 function renderMessage(user, msg) {
     var ts = new Date();
     let msgItem = document.createElement("li");
-    msg = `${ts.toLocaleTimeString()}  ${msg}`;
+    msg = `[${ts.toLocaleTimeString()}]  ${user}:  ${msg}`;
     console.log(`rendering ${msg}`);
     msgItem.appendChild(document.createTextNode(msg));
     //TODO add proper attributes

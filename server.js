@@ -54,9 +54,7 @@ io.on('connection', (socket) => {
         users.addUser(username)
         .then(() => {
             socket.username = username;
-            socket.broadcast.emit('new user connected', {
-                username: socket.username
-            });
+            socket.broadcast.emit('new user connected', username);
             // send default channel
             socket.emit("new channel", "GENERAL");
             added = true;
@@ -91,9 +89,7 @@ io.on('connection', (socket) => {
     socket.on('new channel', (channel) => {
         channels.addChannel(channel)
         .then(() => {
-            socket.broadcast.emit('new channel', {
-                channel: channel
-            });
+            socket.broadcast.emit('new channel', channel);
         })
         .catch((err) => {
             console.error("Error storing new channel in database", JSON.stringify(err));
