@@ -143,6 +143,7 @@ newUserSubmit.addEventListener("click", newUserSubmitHandler);
 newChannelTrigger.addEventListener("click", () => {
     // toggle modal
     modalToggle(newChannelModal);
+    newChannelField.focus();
 });
 
 // Handler for making a new channel
