@@ -39,7 +39,8 @@ function clearMessages() {
 function renderMessage(user, msg) {
     var ts = new Date();
     let msgItem = document.createElement("li");
-    msgItem.appendChild(ts.toLocaleTimeString() + document.createTextNode(msg));
+    msg = ts.toLocaleTimeString() + msg;
+    msgItem.appendChild(document.createTextNode(msg));
     //TODO add proper attributes
     //TODO do something with the user, talk with Paulina
     messageList.appendChild(msgItem);
