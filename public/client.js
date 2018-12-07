@@ -154,6 +154,7 @@ messageSend.addEventListener("click", () => {
 // Send disconnect on window unload
 window.addEventListener("beforeunload", () => {
     socket.emit("disconnect");
+    console.log("beforeunload is fired");
 });
 
 // Finish handling setting the username when validation comes back
