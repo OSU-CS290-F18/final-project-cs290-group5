@@ -24,21 +24,31 @@ class Messages {
     }
 
     sendMsg(channel, user, msg) {
-        const get_cid = "SELECT channel_id FROM channels WHERE name = ?;";
-        const get_uid = "SELECT user_id FROM users WHERE name = ? AND active = true;";
-        const insert_msg = "INSERT INTO messages(channel_id, user_id, message) VALUES(?, ?, ?);";
+        return new Promise((resolve, reject) => {
+            const get_cid = "SELECT channel_id FROM channels WHERE name = ?;";
+            const get_uid = "SELECT user_id FROM users WHERE name = ? AND active = true;";
+            const insert_msg = "INSERT INTO messages(channel_id, user_id, message) VALUES(?, ?, ?);";
 
-        let cid, uid;
+            let cid, uid;
 
-        return this.dao.get(get_cid, channel)
-        .then((row) => {
-            cid = row.channel_id;
-            return this.dao.get(get_uid, user);
-        })
-        .then((row) => {
-            uid = row.user_id;
-            let params = [cid, uid, msg];
-            return this.dao.exec(insert_msg, params);
+            this.dao.get(get_cid, channel)
+            .then((row) => {
+                if (!row) reject("didn't get channel id");
+                cid = row.channel_id;
+                return this.dao.get(get_uid, user);
+            })
+            .then((row) => {
+                if (!row) reject("didn't get user id");
+                uid = row.user_id;
+                let params = [cid, uid, msg];
+                return this.dao.exec(insert_msg, params);
+            })
+            .then(() => {
+                resolve();
+            })
+            .catch((err) => {
+                reject(err);
+            });
         });
     }
 }

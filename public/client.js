@@ -39,7 +39,7 @@ function clearMessages() {
 function renderMessage(user, msg) {
     var ts = new Date();
     let msgItem = document.createElement("li");
-    msg = ts.toLocaleTimeString() + msg;
+    msg = `${ts.toLocaleTimeString()}  ${msg}`;
     console.log(`rendering ${msg}`);
     msgItem.appendChild(document.createTextNode(msg));
     //TODO add proper attributes
@@ -76,6 +76,7 @@ function setActiveChannel(name) {
         }
     }
     activeChannel = name;
+    console.log(`active channel is now ${activeChannel}`);
 
     // remove all existing messages from the DOM
     clearMessages();
@@ -103,6 +104,10 @@ function modalToggle(modal) {
 newUserSubmit.addEventListener("click", () => {
     // get field value
     currentUsername = newUserField.value;
+    if (currentUsername == "") {
+        alert("Please don't leave field blank");
+        return;
+    }
     newUserField.value = "";
     console.log(`got username: ${currentUsername}`);
 
@@ -191,15 +196,23 @@ socket.on("new user connected", (username) => {
 });
 
 // Show new message if it's in our channel
-socket.on("new message", (channel, username, msg) => {
+socket.on("new message incoming", (channel, username, msg) => {
+    console.log("new message incoming");
     if (channel.valueOf() === activeChannel) {
+        console.log("got message for active channel");
         renderMessage(username, msg);
+    } else {
+        console.log("got message for inactive channel");
     }
 });
 
 // Add a new channel
 socket.on("new channel", (channel) => {
     addChannelToSidebar(channel);
+    if (channel.valueOf() === "general") {
+        console.log("received general channel from server");
+        setActiveChannel(channel);
+    }
 });
 
 // Show status when user leaves

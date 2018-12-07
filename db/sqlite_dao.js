@@ -15,7 +15,7 @@ class DAO {
         return new Promise((resolve, reject) => {
             this.db.run(stmt, params, (err) => {
                 if (err) {
-                    console.error(`(DOA.exec) Error on SQL query execute: ${stmt}`);
+                    console.error(`(DAO.exec) Error on SQL query execute: ${stmt}`);
                     console.error(err);
                     reject(err);
                 } else {
@@ -33,7 +33,7 @@ class DAO {
                     console.error(err);
                     reject(err);
                 } else {
-                    console.log("(DAO.get) Received data:", result);
+                    // console.log("(DAO.get) Received data:", result);
                     resolve(result);
                 }
             });

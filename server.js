@@ -57,6 +57,8 @@ io.on('connection', (socket) => {
             socket.broadcast.emit('new user connected', {
                 username: socket.username
             });
+            // send default channel
+            socket.emit("new channel", "general");
             added = true;
         })
         .catch((err) => {
@@ -94,31 +96,28 @@ io.on('connection', (socket) => {
 
     // received a message, store & broadcast
     socket.on('new message', (channel, msg) => {
-        console.log(`received msg from ${socket.username}`)
+        if (!msg || msg.length == 0) return;
         messages.sendMsg(channel, socket.username, msg)
         .then(() => {
-            console.log(`received msg from ${socket.username}`)
-            socket.broadcast.emit('new message', {
-                channel: channel,
-                username: socket.username,
-                msg: msg
-            });
+            console.log(`received msg from ${socket.username} in ${channel}: ${msg}`);
+            // socket.broadcast('new message incoming', channel, socket.username, msg);
         })
         .catch((err) => {
             console.error("Error storing msg in database", JSON.stringify(err));
             socket.emit("db error", "error storing msg");
         });
+        socket.broadcast.emit('new message incoming', channel, socket.username, msg);
     });
 
     // user disconnected, store & broadcast
     socket.on('disconnect', () => {
+        if (!socket.username) return;
         users.removeUser(socket.username)
         .then(() => {
-            socket.broadcast.emit('user disconnected', {
-                username: socket.username
-            });
+            socket.broadcast.emit('user disconnected', username);
+            console.log(`user disconnected: ${socket.username}`);
         })
-        .catch(() => {
+        .catch((err) => {
             console.error("Error removing user in database", JSON.stringify(err));
             socket.emit("db error", "error removing user");
         });
@@ -135,7 +134,10 @@ app.get("*", function (req, res, next){
 console.log("== Initalizing database");
 users.createTable()
 .then(() => {
-    return channels.createTable();        
+    return channels.createTable();
+})
+.then(() => {
+    return channels.addChannel("general");
 })
 .then(() => {
     return messages.createTable();
