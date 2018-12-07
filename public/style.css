@@ -93,24 +93,6 @@ ul {
 	color: white;
 }
 
-.inactive a {
-	font-family: Helvetica, Arial, Sans-Serif;
-	text-align: center;
-	display: block;
-	color: white;
-	margin-top: 10px;
-	text-decoration: none;
-}
-
-.inactive a.active {
-	background-color: #3E3C3C;
-	color: white;
-}
-
-.inactive a:hover:not(.active) {
-	background-color: #555;
-	color: white;
-}
 
 
 #channels-list{
@@ -161,7 +143,7 @@ ul {
 	bottom: 15px;
 	right: 145px;
 	flex-wrap:wrap;
-	width: auto;
+	width: 700px;
 
 }
 
