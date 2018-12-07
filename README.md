@@ -25,9 +25,10 @@ _It's not Slack I swear..._
     - sends one param: username
  - `new user connected` server->client
     - sends one param: username
- - `new message` client<->server
-    - client sends two params: channel, msg
-    - server sends three params: channel, username, msg
+ - `new message` client->server
+    - sends two params: channel, msg
+ - `new message incoming` server->client
+    - sends three params: channel, username, msg
  - `channel available` client->server
     - sends one param: channel
  - `username check ret` server->client
