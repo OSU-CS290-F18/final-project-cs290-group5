@@ -60,9 +60,6 @@ h3 {
 	display: in-line block;
 }
 
-li {
-	text-align: center;
-}
 
 .err{
 	padding-left: 5px;
@@ -90,6 +87,7 @@ li {
 	font-family:Helvetica, Arial, Sans-Serif;
 	color:#66FFCC;
 	list-style-type: none;
+	text-align: center;
 }
 
 
