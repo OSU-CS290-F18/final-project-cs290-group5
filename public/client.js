@@ -103,6 +103,13 @@ function modalToggle(modal) {
     modalVisible = !modalVisible;
 }
 
+// Event handler for channel list
+channelList.addEventListener("click", (e) => {
+    console.log(e.target);
+
+    
+});
+
 // Handler for setting username
 newUserSubmit.addEventListener("click", () => {
     // get field value
