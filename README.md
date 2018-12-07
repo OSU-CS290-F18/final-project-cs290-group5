@@ -46,6 +46,10 @@ _It's not Slack I swear..._
       - `error adding channel`
       - `error storing msg`
       - `error removing user`
+ - `switched channel` client->server
+    - sends one param: channel
+ - `old messages` server->client
+    - sends array of json objects (ts, username, message)
 
 ### Database Design
  - table `channels`:
