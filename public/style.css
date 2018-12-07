@@ -60,6 +60,28 @@ h3 {
 	display: in-line block;
 }
 
+.err{
+	padding-left: 5px;
+	font-family: Helvetica, Arial, Sans-Serif;
+	text-align: center;
+	display: in-line block;
+	position: fixed;
+	margin-left: 600px;
+	top: 200px;
+	font-size: 25px;
+}
+
+.page{
+	padding-left: 5px;
+	font-family: Helvetica, Arial, Sans-Serif;
+	text-align: center;
+	display: in-line block;
+	position: fixed;
+	margin-left: 540px;
+	top: 250px;
+	font-size: 25px;
+}
+
 #channels-list {
 	font-family:Helvetica, Arial, Sans-Serif;
 	color:#66FFCC;
@@ -73,7 +95,6 @@ ul {
 	padding: 10px;
 }
 
-
 .active a {
 	font-family: Helvetica, Arial, Sans-Serif;
 	text-align: center;
@@ -85,7 +106,7 @@ ul {
 
 .active a.active {
 	background-color: #3E3C3C;
-	color: white;
+	color: black;
 }
 
 .active a:hover:not(.active) {
@@ -126,7 +147,7 @@ ul {
 }
 
 #message-list{
-	float: right;
+	width: 100%
 }
 
 
