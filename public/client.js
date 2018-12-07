@@ -124,7 +124,7 @@ newUserSubmit.addEventListener("click", () => {
 newChannelTrigger.addEventListener("click", () => {
     // toggle modal
     modalToggle(newChannelModal);
-})
+});
 
 // Handler for making a new channel
 newChannelSubmit.addEventListener("click", () => {
@@ -149,7 +149,8 @@ newChannelAbort.addEventListener("click", () => {
 });
 
 // Handler for sending a new message
-messageSend.addEventListener("click", () => {
+// messageSend.addEventListener("click", () => {
+function messageSendHandler() {
     // get field value
     let msgText = messageTextBox.value;
     messageTextBox.value = "";
@@ -157,7 +158,8 @@ messageSend.addEventListener("click", () => {
 
     // broadcast
     socket.emit("new message", activeChannel, msgText);
-});
+}
+// });
 
 // Send disconnect on window unload
 window.addEventListener("beforeunload", () => {
@@ -182,7 +184,7 @@ socket.on("username check ret", (available) => {
 socket.on("channel check ret", (newChannelName, available) => {
     if (available) {
         // render new channel
-        addChannelToSidebar(newChannelName);    
+        addChannelToSidebar(newChannelName);
 
         // close modal
         modalToggle(newChannelModal);
