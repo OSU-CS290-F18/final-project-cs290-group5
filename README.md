@@ -17,6 +17,10 @@ _It's not Slack I swear..._
  - Message `ul`: `message-list`
 
 ### Socket.io design
+ - `username available` client->server
+    - sends one param: username
+ - `username check ret` server->client
+    - sends one param: available (boolean)
  - `new user` client->server
     - sends one param: username
  - `new user connected` server->client
@@ -24,6 +28,10 @@ _It's not Slack I swear..._
  - `new message` client<->server
     - client sends two params: channel, msg
     - server sends three params: channel, username, msg
+ - `channel available` client->server
+    - sends one param: channel
+ - `username check ret` server->client
+    - sends one param: available (boolean)
  - `new channel` client<->server
     - both parties send one param: channel
  - `disconnect` client->server
@@ -32,6 +40,11 @@ _It's not Slack I swear..._
     - sends one param: username
  - `db error` server->client
     - sends one param: msg
+    - possible messages
+      - `error initializing user`
+      - `error adding channel`
+      - `error storing msg`
+      - `error removing user`
 
 ### Database Design
  - table `channels`:

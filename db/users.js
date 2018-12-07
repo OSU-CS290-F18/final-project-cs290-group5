@@ -27,6 +27,14 @@ class Users {
         
         return this.dao.exec(stmt, params);
     }
+    
+    userExists(name) {
+        const stmt = `SELECT * FROM users WHERE name = ? AND active = true;`;
+        const params = [name];
+
+        let row = this.dao.get(stmt, params);
+        return row != undefined;
+    }
 }
 
 module.exports = Users;
