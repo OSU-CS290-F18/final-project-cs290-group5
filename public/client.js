@@ -148,11 +148,6 @@ messageSend.addEventListener("click", () => {
     socket.emit("new message", channel, msgText);
 });
 
-// Popup new user on window load
-window.addEventListener("load", () => {
-    // modalToggle(newUserModal);
-});
-
 // Send disconnect on window unload
 window.addEventListener("beforeunload", () => {
     socket.emit("disconnect");

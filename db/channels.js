@@ -21,11 +21,22 @@ class Channels {
     }
 
     channelExists(name) {
-        const stmt = `SELECT * FROM channels WHERE name = ?;`;
-        const params = [name];
+        return new Promise((resolve, reject) => {
+            const stmt = `SELECT * FROM channels WHERE name = ?;`;
+            const params = [name];
 
-        let row = this.dao.get(stmt, params);
-        return row != undefined;
+            this.dao.get(stmt, params)
+            .then((row) => {
+                if (row) {
+                    resolve(false);
+                } else {
+                    resolve(true);
+                }
+            })
+            .catch((err) => {
+                reject(err);
+            });
+        });
     }
 }
 
