@@ -126,11 +126,9 @@ ul {
 }
 
 #message-list{
+	float: right;
 }
 
-.chatbox{
-	
-}
 
 #message-text-box {
 	display: flex;
@@ -144,6 +142,7 @@ ul {
 	right: 145px;
 	flex-wrap:wrap;
 	width: 700px;
+	float: right;
 
 }
 
