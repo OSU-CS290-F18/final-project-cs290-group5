@@ -124,6 +124,8 @@ newChannelSubmit.addEventListener("click", () => {
 
     // validate
     socket.emit("channel available", channel);
+
+    // rest of handler in socket.on("channel check ret")
 });
 
 // Handler for cancelling the creation of a new channel
