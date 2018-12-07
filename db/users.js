@@ -40,6 +40,9 @@ class Users {
                 } else {
                     resolve(true);
                 }
+            })
+            .catch((err) => {
+                reject(err);
             });
         });
     }
