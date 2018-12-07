@@ -69,7 +69,7 @@ ul {
 }
 
 
-li a {
+.active a {
 	font-family: Helvetica, Arial, Sans-Serif;
 	text-align: center;
 	display: block;
@@ -78,15 +78,35 @@ li a {
 	text-decoration: none;
 }
 
-li a.active {
+.active a.active {
 	background-color: #3E3C3C;
 	color: white;
 }
 
-li a:hover:not(.active) {
+.active a:hover:not(.active) {
 	background-color: #555;
 	color: white;
 }
+
+.inactive a {
+	font-family: Helvetica, Arial, Sans-Serif;
+	text-align: center;
+	display: block;
+	color: white;
+	margin-top: 55px;
+	text-decoration: none;
+}
+
+.inactive a.active {
+	background-color: #3E3C3C;
+	color: white;
+}
+
+.inactive a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
 
 #channels-list{
 	background-color: #3E3C3C;
