@@ -94,6 +94,7 @@ io.on('connection', (socket) => {
 
     // received a message, store & broadcast
     socket.on('new message', (channel, msg) => {
+        console.log(`received msg from ${socket.username}`)
         messages.sendMsg(channel, socket.username, msg)
         .then(() => {
             console.log(`received msg from ${socket.username}`)
