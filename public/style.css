@@ -36,6 +36,7 @@ h1 {
 	color: #3E3C3C;
 	margin-left: 580px;
 	text-decoration: overline;
+	text-align: center;
 	/*
 	text-align: center;
 	top: 18px;
@@ -60,9 +61,6 @@ h3 {
 	display: in-line block;
 }
 
-li {
-	text-align: center;
-}
 
 .err{
 	padding-left: 5px;
@@ -90,6 +88,7 @@ li {
 	font-family:Helvetica, Arial, Sans-Serif;
 	color:#66FFCC;
 	list-style-type: none;
+	text-align: center;
 }
 
 
@@ -110,7 +109,7 @@ ul {
 
 .active a.active {
 	background-color: #3E3C3C;
-	color: black;
+	color: white;
 }
 
 .active a:hover:not(.active) {
@@ -200,7 +199,7 @@ ul {
 
 /*Username modal*/
 
-.username{
+label{
 	font-family: Helvetica, Arial, Sans-Serif;
 }
 
@@ -228,7 +227,7 @@ ul {
 	max-width: 600px;
 	min-width: 350px;
 	min-height: 200px;
-	margin: 40px auto;
+	margin: 10px auto;
 	background-color: #fff;
 	border-radius: 15px;
 	margin-top: 200px;
@@ -277,7 +276,7 @@ ul {
 #new-user-field{
 	width: 25px;
 	height: 15px;
-	margin: 7px;
+	margin: 0px;
 	border-radius: 8px;
 }
 
