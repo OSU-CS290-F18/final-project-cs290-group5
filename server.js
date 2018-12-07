@@ -10,7 +10,7 @@ const DAO = require('./db/sqlite_dao');
 const Users = require('./db/users');
 const Channels = require('./db/channels');
 const Messages = require('./db/messages');
-const dao = new DAO('test.sqlite3');
+const dao = new DAO('underline.sqlite3');
 const users = new Users(dao);
 const channels = new Channels(dao);
 const messages = new Messages(dao);
@@ -90,7 +90,7 @@ io.on('connection', (socket) => {
         .catch((err) => {
             console.error("Unable to check if channel is available:", err);
             socket.emit("db error", "unable to check if channel is available");
-        })
+        });
     });
 
     // user made a new channel, store & broadcast
@@ -135,7 +135,7 @@ io.on('connection', (socket) => {
         if (!socket.username) return;
         users.removeUser(socket.username)
         .then(() => {
-            socket.broadcast.emit('user disconnected', username);
+            socket.broadcast.emit('user disconnected', socket.username);
             console.log(`user disconnected: ${socket.username}`);
         })
         .catch((err) => {

@@ -42,8 +42,6 @@ function renderMessage(user, msg) {
     msg = `[${ts.toLocaleTimeString()}]  ${user}:  ${msg}`;
     console.log(`rendering ${msg}`);
     msgItem.appendChild(document.createTextNode(msg));
-    //TODO add proper attributes
-    //TODO do something with the user, talk with Paulina
     messageList.appendChild(msgItem);
 
 }
@@ -168,6 +166,7 @@ newChannelAbort.addEventListener("click", () => {
 function messageSendHandler() {
     // get field value
     let msgText = messageTextBox.value;
+    if (msgText.length == 0) return;
     messageTextBox.value = "";
     console.log(`sending message: ${msgText}`);
 

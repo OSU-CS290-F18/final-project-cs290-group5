@@ -19,7 +19,7 @@ class DAO {
                     console.error(err);
                     reject(err);
                 } else {
-                    resolve({ id: this.lastID });
+                    resolve();
                 }
             });
         });
