@@ -107,7 +107,7 @@ io.on('connection', (socket) => {
         messages.sendMsg(channel, socket.username, msg)
         .then(() => {
             console.log(`received msg from ${socket.username} in ${channel}: ${msg}`);
-            // socket.broadcast('new message incoming', channel, socket.username, msg);
+            socket.emit('new message incoming', channel, socket.username, msg);
         })
         .catch((err) => {
             console.error("Error storing msg in database", JSON.stringify(err));
