@@ -2,6 +2,10 @@ body {
 	margin: 0px;
 }
 
+.sidebar{
+	min-width: 225px;
+}
+
 .banner {
 	background-color: #66FFCC;
 	align-items: center;
@@ -154,7 +158,7 @@ ul {
 }
 
 .message-container {
-	float:right;
+	margin-left: 350px;
 	
 }
 
