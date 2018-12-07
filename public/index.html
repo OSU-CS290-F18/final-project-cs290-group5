@@ -5,13 +5,7 @@
 <head>
 
 	<title>Underline</title>
-	<!-- This is a 3rd-party stylesheet to make available the font families to be used for this page ("Roboto" and "Roboto Slab"). -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
-
-	<!-- This 3rd party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
-
 	<!-- Link in our JS and Socket.io -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js" defer></script>
 	<script src="client.js" charset="utf-8" defer></script>
@@ -26,7 +20,7 @@
 		</div>
 	</header>
 
-	<!--user modal-->
+	<!--user modal
 	<div id="modal-backdrop">
 		<div id="new-user-modal">
 			<div class="mod-content">
@@ -45,6 +39,7 @@
 			</div>
 		</div>
 	</div>
+	-->
 
 
 	<main class="main">
@@ -66,7 +61,8 @@
 			<nav id = "channels-list">
 				<h2>CHANNELS</h2>
 					<ul>
-						<li><a href="#">CHANNEL TEST HERE</a></li>
+						<li id ="active"><a href="#">ACTIVE CHANNEL</a></li>
+						<li id ="inactive"><a href="#">INACTIVE CHANNEL</a></li>
 					</ul>
 				<button type="button" id="new-channel-trigger"><i class="chan-btn"></i><strong>+ CHANNEL</strong></button>
 			</nav>
