@@ -95,6 +95,9 @@ h3 {
 	list-style-type: none;
 }
 
+#channels-list a:hover{
+	background-color: #555;
+}
 
 ul {
 	list-style-type: none;
@@ -117,7 +120,7 @@ ul {
 }
 
 .active a:hover:not(.active) {
-	background-color: #555;
+	/* background-color: #555; */
 	color: white;
 }
 
