@@ -4,6 +4,8 @@
   "description": "CS 290 Final Project - totally not Slack",
   "main": "index.js",
   "scripts": {
+    "pull": "git pull",
+    "flip": "npm run pull && npm run dev",
     "clean-db": "rm -f test.sqlite3",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run clean-db && node server.js",
