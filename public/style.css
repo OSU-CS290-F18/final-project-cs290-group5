@@ -25,6 +25,10 @@ body {
 	display: none;
 }
 
+li{
+	top: 0px;
+}
+
 h1 {
 	font-style: oblique;
 	font-size: 33px;
@@ -115,6 +119,7 @@ ul {
 	position: fixed;
 	z-index: 1;
 	flex-wrap:wrap;
+	margin: 0;
 }
 
 #channels-list a {
@@ -130,9 +135,9 @@ ul {
 }
 
 #chat-input {
-	float: right:
+	float: right;
 	height: 100%;
-	width: 100%;
+	width: 10%;
 }
 
 /*
@@ -153,7 +158,11 @@ ul {
 }
 */
 
-.chatbox {
+.chatbox{
+	float:right;
+}
+
+#message-text-box {
 	width: 750px;
 	height: 15px;
 	margin: 7px;
@@ -165,12 +174,12 @@ ul {
 	right: 145px;
 	display: flex;
 	flex-wrap:wrap;
+
 }
 
-.message-container{
-	position: fixed;
-	bottom: 13px;
-	right: 150px
+.message-container {
+	float:right;
+	
 }
 
 #message {
