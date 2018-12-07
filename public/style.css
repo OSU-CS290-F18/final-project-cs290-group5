@@ -159,14 +159,12 @@ ul {
 	overflow: auto;
 	height: 100%;
 	width:100%;
-	
 }
 
 .message-container{
-	
 	/* float: right; */
 	height: 800px;
-	width: 750px;
+	width: 1600px;
 	/* border: solid; */
 	display: inline-block;
 	vertical-align: top;
