@@ -46,12 +46,11 @@
 		</div>
 	</div>
 
-	<!--message box and send-->
 
 	<main class="main">
-
+		<!--convo area-->
 		<section id="chat-input">
-			<div class="message">
+			<div class="message-container">
 				<div class="chatbox">
 					<input type="text" id="message-text-box" name="textn" class="chatbox" placeholder="Send a message!">
 
@@ -60,16 +59,23 @@
 
 			<button type="button" id="message-send"><i class="send-message"></i><strong>SEND</strong></button>
 		</section>
+		
+		<!--channels-->
+		
+		<div id= "channels-list">
+			<nav>
+				<h2>CHANNELS</h2>
+					<ul>
+						<li><a href="#">CHANNEL TEST HERE</a></li>
+					</ul>
+				<button type="button" id="new-channel-trigger"><i class="chan-btn"></i><strong>+ CHANNEL</strong></button>
+			</nav>
+		</div>
+		
+
+		
+		
 	</main>
-
-	<!--channels-->
-	<nav>
-		<ul id="channels-list"><a href="#"> CHANNELS</a>
-			<li><a href="#"> channel test here</a></li>
-		</ul>
-	</nav>
-
-	<button type="button" id="new-channel-trigger"><i class="chan-btn"></i><strong>+ CHANNEL</strong></button>
 
 	<!--channel modal-->
 	</div>
