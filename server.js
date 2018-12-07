@@ -134,6 +134,7 @@ app.get("*", function (req, res, next){
     res.sendFile(__dirname + '/public/404.html'); //bring to 404 page
 });
 
+// initalize DB
 console.log("== Initalizing database");
 users.createTable()
 .then(() => {

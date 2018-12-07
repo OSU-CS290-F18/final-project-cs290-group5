@@ -105,9 +105,13 @@ function modalToggle(modal) {
 
 // Event handler for channel list
 channelList.addEventListener("click", (e) => {
-    console.log(e.target);
+    if (e.target.tagName !== "A") {
+        console.log("non <a> clicked in channelList handler");
+        return;
+    }
 
-
+    let selectedChannel = e.target.text;
+    setActiveChannel(selectedChannel);
 });
 
 // Handler for setting username
