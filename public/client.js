@@ -59,8 +59,10 @@ function renderStatus(msg) {
 // Render new channel in sidebar
 function addChannelToSidebar(name) {
     let channelItem = document.createElement("li");
-    channelItem.appendChild(document.createTextNode(name));
-    //TODO add proper attributes
+    let link = document.createElement("a");
+    link.appendChild(document.createTextNode(name));
+    channelItem.appendChild(link);
+    channelItem.classList.add("inactive");
     channelList.appendChild(channelItem);
 }
 
@@ -69,6 +71,7 @@ function setActiveChannel(name) {
     // get element for new active channel in sidebar
     let channelsInList = channelList.getElementsByTagName("li");
     for (let i = 0; i < channelsInList.length; i++) {
+        channelsInList[i].className = '';
         if (name === channelsInList[i].textContent.valueOf()) {
             channelsInList[i].classList.add("active");
         } else {
