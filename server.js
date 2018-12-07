@@ -27,13 +27,22 @@ io.on('connection', (socket) => {
     socket.on('username available', (username) => {
         if (added) return;
 
-        if (!users.userExists(username)) {
-            // user doesn't exist, send back all good
-            socket.emit("username check ret", true);
-        } else {
-            // user doesn't exist, send back no beuno
-            socket.emit("username check ret", false);
-        }
+        users.userExists(username)
+        .then((available) => {
+            if (available) {
+                // user doesn't exist, send back all good
+                socket.emit("username check ret", true);
+                console.log(`${username}: username available`);
+            } else {
+                // user doesn't exist, send back no beuno
+                socket.emit("username check ret", false);
+                console.log(`${username}: username unavailable`);
+            }
+        })
+        .catch((err) => {
+            console.error("Unable to check if username was available:", err);
+            socket.emit("db error", "unable to check if username is available");
+        })
     });
 
     // user connected, store & broadcast
@@ -131,7 +140,7 @@ users.createTable()
     return messages.createTable();
 })
 .then(() => {
-    app.listen(port, function (err) {
+    http.listen(port, function (err) {
         if (err) {
             throw err;
         }
