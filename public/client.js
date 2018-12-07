@@ -206,3 +206,9 @@ socket.on("new channel", (channel) => {
 socket.on("user disconnected", (username) => {
     renderStatus(`user disconnected: ${username}`);
 });
+
+// Watch for db errors
+socket.on("db error", (msg) => {
+    renderStatus(msg);
+    console.error(msg);
+});

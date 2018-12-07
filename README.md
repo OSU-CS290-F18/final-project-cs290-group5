@@ -40,6 +40,11 @@ _It's not Slack I swear..._
     - sends one param: username
  - `db error` server->client
     - sends one param: msg
+    - possible messages
+      - `error initializing user`
+      - `error adding channel`
+      - `error storing msg`
+      - `error removing user`
 
 ### Database Design
  - table `channels`:

@@ -29,7 +29,7 @@ class Users {
     }
     
     userExists(name) {
-        const stmt = `SELECT * FROM users WHERE name = ?;`;
+        const stmt = `SELECT * FROM users WHERE name = ? AND active = true;`;
         const params = [name];
 
         let row = this.dao.get(stmt, params);

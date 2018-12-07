@@ -31,6 +31,11 @@ async function test() {
     .then(() => {
         return users.addUser("user2");
     })
+    .then(() => {
+        return new Promise((resolve, reject) => {
+            if (users.userExists());
+        });
+    })
 }
 
 test();

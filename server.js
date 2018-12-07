@@ -52,6 +52,7 @@ io.on('connection', (socket) => {
         })
         .catch((err) => {
             console.error("Error storing new user in database", JSON.stringify(err));
+            socket.emit("db error", "error initializing user");
         });
     });
 
@@ -78,6 +79,7 @@ io.on('connection', (socket) => {
         })
         .catch((err) => {
             console.error("Error storing new channel in database", JSON.stringify(err));
+            socket.emit("db error", "error adding channel");
         });
     });
 
@@ -94,6 +96,7 @@ io.on('connection', (socket) => {
         })
         .catch((err) => {
             console.error("Error storing msg in database", JSON.stringify(err));
+            socket.emit("db error", "error storing msg");
         });
     });
 
@@ -107,6 +110,7 @@ io.on('connection', (socket) => {
         })
         .catch(() => {
             console.error("Error removing user in database", JSON.stringify(err));
+            socket.emit("db error", "error removing user");
         });
     });
 });
