@@ -4,7 +4,9 @@ body {
 
 .sidebar{
 	min-width: 225px;
+	text-align: center;
 }
+
 
 .banner {
 	background-color: #66FFCC;
@@ -53,9 +55,8 @@ h2 {
 	padding-left: 5px;
 	font-family: Helvetica, Arial, Sans-Serif;
 	text-align: center;
-	display: in-line block;
-	position: fixed;
-	margin-left: 80px;
+	
+	margin-bottom: 20px;
 	font-size: 25px;
 }
 
@@ -106,7 +107,7 @@ ul {
 	text-align: center;
 	display: block;
 	color: white;
-	margin-top: 65px;
+	/* margin-top: 65px; */
 	text-decoration: none;
 }
 
