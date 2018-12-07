@@ -2,6 +2,10 @@ body {
 	margin: 0px;
 }
 
+.sidebar{
+	min-width: 225px;
+}
+
 .banner {
 	background-color: #66FFCC;
 	align-items: center;
@@ -61,9 +65,6 @@ h3 {
 	display: in-line block;
 }
 
-li {
-	text-align: center;
-}
 
 .err{
 	padding-left: 5px;
@@ -137,7 +138,7 @@ ul {
 	font-family: Helvetica, Arial, Sans-Serif;
 	padding: 6px 20px 20px 6px;
 	text-decoration: none;
-	color: black;
+	color: #66FFCC;
 	display: block;
 }
 
@@ -152,21 +153,23 @@ ul {
 }
 
 #message-list{
+	float: left;
+	text-align: left;
 	
 }
 
 .message-container{
 	
-	float: right;
-	height: 531px;
-	width: 1010px;
-	border: solid;
+	/* float: right; */
+	height: 100%;
+	width: 100%;
+	/* border: solid; */
 	display: inline-block;
 	vertical-align: top;
 	padding: 10px;
 	word-wrap:break-word;
-	text-align: left;
 	border-bottom:none;
+	margin-left: 350px;
 }
 
 
