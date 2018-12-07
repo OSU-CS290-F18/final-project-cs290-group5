@@ -37,11 +37,13 @@ function clearMessages() {
 
 // Render new message
 function renderMessage(user, msg) {
+    var ts = new Date();
     let msgItem = document.createElement("li");
-    msgItem.appendChild(document.createTextNode(msg));
+    msgItem.appendChild(ts.toLocaleTimeString() + document.createTextNode(msg));
     //TODO add proper attributes
     //TODO do something with the user, talk with Paulina
     messageList.appendChild(msgItem);
+
 }
 
 // Render status msg (i.e. user join, user leave)
@@ -66,10 +68,9 @@ function setActiveChannel(name) {
     let channelsInList = channelList.getElementsByTagName("li");
     for (let i = 0; i < channelsInList.length; i++) {
         if (name === channelsInList[i].textContent.valueOf()) {
-            // got new active channel
-            //TODO do something with it
+            channelsInList[i].classList.add("active");
         } else {
-            //TODO set channel not active in CSS
+            channelsInList[i].classList.add("inactive");
         }
     }
     activeChannel = name;
@@ -82,7 +83,7 @@ function setActiveChannel(name) {
 function modalToggle(modal) {
     if (modalVisible) {
         console.log("hiding modal");
-        // modal is currently visible
+        // modal is currently visibles
         // hide dat boi
         modal.style.display = "none";
         modalBackdrop.style.display = "none";
