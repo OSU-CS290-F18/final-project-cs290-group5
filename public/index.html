@@ -7,7 +7,8 @@
 	<title>Underline</title>
 	<link rel="stylesheet" href="style.css">
 	<!-- Link in our JS and Socket.io -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js" defer></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js" defer></script> -->
+	<script src="/socket.io/socket.io.js" defer></script>
 	<script src="client.js" charset="utf-8" defer></script>
 	<!-- <header><strong>UNDERLINE</strong></header> -->
 </head>
@@ -20,7 +21,7 @@
 		</div>
 	</header>
 
-	<!--user modal
+
 	<div id="modal-backdrop">
 		<div id="new-user-modal">
 			<div class="mod-content">
@@ -39,7 +40,6 @@
 			</div>
 		</div>
 	</div>
-	-->
 
 
 	<main class="main">
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 
-			<button type="button" id="message-send"><i class="send-message"></i><strong>SEND</strong></button>
+			<button type="button" id="message-send"><strong>SEND</strong></button>
 		</section>
 		
 		<!--channels-->
@@ -64,7 +64,7 @@
 						<li class ="active"><a href="#">ACTIVE CHANNEL</a></li>
 						<li class ="inactive"><a href="#">INACTIVE CHANNEL</a></li>
 					</ul>
-				<button type="button" id="new-channel-trigger"><i class="chan-btn"></i><strong>+ CHANNEL</strong></button>
+				<button type="button" id="new-channel-trigger"><strong>+ CHANNEL</strong></button>
 			</nav>
 		</div>
 		

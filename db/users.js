@@ -27,13 +27,21 @@ class Users {
         
         return this.dao.exec(stmt, params);
     }
-    
-    userExists(name) {
-        const stmt = `SELECT * FROM users WHERE name = ? AND active = true;`;
-        const params = [name];
 
-        let row = this.dao.get(stmt, params);
-        return row != undefined;
+    userExists(name) {
+        return new Promise((resolve, reject) => {
+            const stmt = `SELECT * FROM users WHERE name = ? AND active = true;`;
+            const params = [name];
+
+            this.dao.get(stmt, params)
+            .then((row) => {
+                if (row) {
+                    resolve(false);
+                } else {
+                    resolve(true);
+                }
+            });
+        });
     }
 }
 
