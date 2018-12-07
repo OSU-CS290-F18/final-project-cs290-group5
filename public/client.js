@@ -68,10 +68,9 @@ function setActiveChannel(name) {
     let channelsInList = channelList.getElementsByTagName("li");
     for (let i = 0; i < channelsInList.length; i++) {
         if (name === channelsInList[i].textContent.valueOf()) {
-            // got new active channel
-            //TODO do something with it
+            channelsInList[i].classList.add("active");
         } else {
-            //TODO set channel not active in CSS
+            channelsInList[i].classList.add("inactive");
         }
     }
     activeChannel = name;
@@ -126,6 +125,8 @@ newChannelSubmit.addEventListener("click", () => {
 
     // validate
     socket.emit("channel available", channel);
+
+    // rest of handler in socket.on("channel check ret")
 });
 
 // Handler for cancelling the creation of a new channel
