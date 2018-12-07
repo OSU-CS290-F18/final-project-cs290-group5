@@ -30,6 +30,7 @@ h1 {
 	font-size: 33px;
 	color: #3E3C3C;
 	margin-left: 580px;
+	text-decoration: overline;
 	/*
 	text-align: center;
 	top: 18px;
@@ -44,6 +45,8 @@ h2 {
 	text-align: center;
 	display: in-line block;
 	position: fixed;
+	margin-left: 80px;
+	font-size: 25px;
 }
 
 h3 {
@@ -52,22 +55,26 @@ h3 {
 	display: in-line block;
 }
 
+#channels-list {
+	font-family:Helvetica, Arial, Sans-Serif;
+	color:#66FFCC;
+	list-style-type: none;
+}
+
 
 ul {
-	text-align: center;
-	color: white;
 	list-style-type: none;
 	margin: 10px;
 	padding: 10px;
 }
 
+
 li a {
-	font-family: font-family: Helvetica, Arial, Sans-Serif;
+	font-family: Helvetica, Arial, Sans-Serif;
 	text-align: center;
 	display: block;
-	color: #000;
-	padding: 18px 16px;
-	padding-top: 10px;
+	color: white;
+	margin-top: 50px;
 	text-decoration: none;
 }
 
@@ -184,6 +191,10 @@ li{
 
 /*Username modal*/
 
+.username{
+	font-family: Helvetica, Arial, Sans-Serif;
+}
+
 #modal-backdrop {
 	position: fixed;
 	top: 0;
@@ -253,11 +264,23 @@ li{
 	padding: 10px 10px 10px 10px;
 }
 
+#new-user-field{
+	width: 25px;
+	height: 15px;
+	margin: 7px;
+	border-radius: 8px;
+}
+
 #new-user-submit {
 	margin-right: 20px;
 }
 
 /*channel mod*/
+
+.chann-name{
+	padding: 20px;
+	font-family: Helvetica, Arial, Sans-Serif;
+}
 
 #new-channel-trigger{
 	background-color: #66FFCC;
@@ -294,6 +317,14 @@ li{
 	z-index: 1010;
 }
 
+#new-channel-field{
+	width: 25px;
+	height: 15px;
+	margin: 7px;
+	border-radius: 8px;
+}
+
+
 .channel-header {
 	position: relative;
 	padding: 10px 20px;
@@ -303,11 +334,6 @@ li{
 	margin: 0;
 	font-size: 28px;
 }
-
-.chann-name {
-	padding: 20px;
-}
-
 .chann-name {
 	display: flex;
 	align-items: center;
