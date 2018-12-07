@@ -38,6 +38,12 @@ class Channels {
             });
         });
     }
+
+    getListOfChannels() {
+        const stmt = "SELECT name FROM channels;"
+
+        return this.dao.all(stmt);
+    }
 }
 
 module.exports = Channels;

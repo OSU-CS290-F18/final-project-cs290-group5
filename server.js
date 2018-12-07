@@ -55,8 +55,16 @@ io.on('connection', (socket) => {
         .then(() => {
             socket.username = username;
             socket.broadcast.emit('new user connected', username);
-            // send default channel
-            socket.emit("new channel", "GENERAL");
+
+            // send a list of channels
+            return channels.getListOfChannels();
+        })
+        .then((channelList) => {
+            console.log(`sending ${username} channel listing:`, channelList);
+            for (let i = 0; i < channelList.length; i++) {
+                socket.emit("new channel", channelList[i].name);
+            }
+
             added = true;
         })
         .catch((err) => {

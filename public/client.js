@@ -51,8 +51,9 @@ function renderMessage(user, msg) {
 // Render status msg (i.e. user join, user leave)
 function renderStatus(msg) {
     let msgItem = document.createElement("li");
-    msgItem.appendChild(document.createTextNode(msg));
-    //TODO add proper attributes
+    let italic = document.createElement("i");
+    italic.appendChild(document.createTextNode(msg));
+    msgItem.appendChild(italic);
     messageList.appendChild(msgItem);
 }
 

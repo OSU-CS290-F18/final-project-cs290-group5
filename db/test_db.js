@@ -23,6 +23,9 @@ async function test() {
         return channels.addChannel("my_channel");
     })
     .then(() => {
+        return channels.addChannel("my_chnnal");
+    })
+    .then(() => {
         return messages.sendMsg("my_channel", "user1", "test message 1234");
     })
     .then(() => {
@@ -33,9 +36,22 @@ async function test() {
     })
     .then(() => {
         return new Promise((resolve, reject) => {
-            if (users.userExists());
+            if (users.userExists("user2")) {
+                resolve();
+            } else {
+                reject();
+            }
         });
     })
+    .then(() => {
+        return channels.getListOfChannels();
+    })
+    .then((channelList) => {
+        console.log(channelList);
+    })
+    .catch((err) => {
+        console.error("db test error", JSON.stringify(err));
+    });
 }
 
 test();
