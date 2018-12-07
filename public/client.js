@@ -148,7 +148,7 @@ messageSend.addEventListener("click", () => {
     console.log(`sending message: ${msgText}`);
 
     // broadcast
-    socket.emit("new message", newChannelName, msgText);
+    socket.emit("new message", activeChannel, msgText);
 });
 
 // Send disconnect on window unload
