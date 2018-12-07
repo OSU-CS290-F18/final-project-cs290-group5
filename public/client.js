@@ -122,7 +122,7 @@ newChannelSubmit.addEventListener("click", () => {
     console.log(`new channel made: ${newChannelName}`);
 
     // validate
-    socket.emit("channel available", channel);
+    socket.emit("channel available", newChannelName);
 
     // rest of handler in socket.on("channel check ret")
 });
