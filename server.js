@@ -112,6 +112,16 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('new message incoming', channel, socket.username, msg);
     });
 
+    // client switched channels, send them messages
+    socket.on('switched channel', (channel) => {
+        console.log(`${socket.username} requested messages for ${channel}`);
+        messages.getMessages(channel)
+        .then((rows) => {
+            console.log(rows);
+            socket.emit("old messages", rows);
+        })
+    })
+
     // user disconnected, store & broadcast
     socket.on('disconnect', () => {
         if (!socket.username) return;

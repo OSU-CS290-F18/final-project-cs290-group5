@@ -81,6 +81,9 @@ function setActiveChannel(name) {
     activeChannel = name;
     console.log(`active channel is now ${activeChannel}`);
 
+    // request old messages for the "new" channel
+    socket.emit("switched channel", name);
+
     // remove all existing messages from the DOM
     clearMessages();
 }
@@ -231,6 +234,13 @@ socket.on("new channel", (channel) => {
         setActiveChannel(channel);
     }
 });
+
+// Render old message for the channel
+socket.on("old messages", (data) => {
+    for (let i = 0; i < data.length; i++) {
+        renderMessage(data[i].username, data[i].message);
+    }
+})
 
 // Show status when user leaves
 socket.on("user disconnected", (username) => {

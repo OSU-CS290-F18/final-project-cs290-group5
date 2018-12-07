@@ -65,9 +65,13 @@ h3 {
 	display: in-line block;
 }
 
+<<<<<<< HEAD
 /* li {
 	text-align: center;
 } */
+=======
+
+>>>>>>> 9226e8b86e516b5166413cc82ac59b43b47aae25
 
 .err{
 	padding-left: 5px;
@@ -141,7 +145,7 @@ ul {
 	font-family: Helvetica, Arial, Sans-Serif;
 	padding: 6px 20px 20px 6px;
 	text-decoration: none;
-	color: black;
+	color: #66FFCC;
 	display: block;
 }
 
@@ -156,6 +160,7 @@ ul {
 }
 
 #message-list{
+<<<<<<< HEAD
 	word-wrap: break-word;
 	float: left;
 	text-align: left;
@@ -163,6 +168,15 @@ ul {
 
 .message-container{
 	margin-left: 350px;
+=======
+	float: left;
+	text-align: left;
+	
+}
+
+.message-container{
+	
+>>>>>>> 9226e8b86e516b5166413cc82ac59b43b47aae25
 	/* float: right; */
 	height: 100%;
 	width: 100%;
@@ -170,9 +184,15 @@ ul {
 	display: inline-block;
 	vertical-align: top;
 	padding: 10px;
+<<<<<<< HEAD
 	/* text-align: left; */
 	border-bottom:none;
 	/* word-wrap: break-word; */
+=======
+	word-wrap:break-word;
+	border-bottom:none;
+	margin-left: 350px;
+>>>>>>> 9226e8b86e516b5166413cc82ac59b43b47aae25
 }
 
 

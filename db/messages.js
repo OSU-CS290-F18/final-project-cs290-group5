@@ -25,6 +25,7 @@ class Messages {
 
     sendMsg(channel, user, msg) {
         return new Promise((resolve, reject) => {
+            // probably can do some cool join shit here idk
             const get_cid = "SELECT channel_id FROM channels WHERE name = ?;";
             const get_uid = "SELECT user_id FROM users WHERE name = ? AND active = true;";
             const insert_msg = "INSERT INTO messages(channel_id, user_id, message) VALUES(?, ?, ?);";
@@ -50,6 +51,14 @@ class Messages {
                 reject(err);
             });
         });
+    }
+
+    getMessages(channel) {
+        // flex
+        const stmt = "SELECT messages.ts, users.name AS username, message FROM messages INNER JOIN users ON messages.user_id = users.user_id INNER JOIN channels ON messages.channel_id = channels.channel_id WHERE channels.name = ? ORDER BY messages.ts ASC LIMIT 10;"
+        let params = [channel];
+
+        return this.dao.all(stmt, params);
     }
 }
 
