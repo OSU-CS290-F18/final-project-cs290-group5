@@ -103,6 +103,13 @@ function modalToggle(modal) {
     modalVisible = !modalVisible;
 }
 
+// Event handler for channel list
+channelList.addEventListener("click", (e) => {
+    console.log(e.target);
+
+
+});
+
 // Handler for setting username
 newUserSubmit.addEventListener("click", () => {
     // get field value
@@ -215,7 +222,7 @@ socket.on("new message incoming", (channel, username, msg) => {
 // Add a new channel
 socket.on("new channel", (channel) => {
     addChannelToSidebar(channel);
-    if (channel.valueOf() === "general") {
+    if (channel.valueOf() === "GENERAL") {
         console.log("received general channel from server");
         setActiveChannel(channel);
     }

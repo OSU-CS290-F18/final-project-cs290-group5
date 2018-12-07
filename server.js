@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
                 username: socket.username
             });
             // send default channel
-            socket.emit("new channel", "general");
+            socket.emit("new channel", "GENERAL");
             added = true;
         })
         .catch((err) => {
@@ -144,7 +144,7 @@ users.createTable()
     return channels.createTable();
 })
 .then(() => {
-    return channels.addChannel("general");
+    return channels.addChannel("GENERAL");
 })
 .then(() => {
     return messages.createTable();
