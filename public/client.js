@@ -176,7 +176,7 @@ socket.on("username check ret", (available) => {
 });
 
 // Finish handling creating a channel when validation comes back
-socket.on("channel check ret", (available) => {
+socket.on("channel check ret", (newChannelName, available) => {
     if (available) {
         // render new channel
         addChannelToSidebar(newChannelName);    

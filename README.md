@@ -31,8 +31,8 @@ _It's not Slack I swear..._
     - sends three params: channel, username, msg
  - `channel available` client->server
     - sends one param: channel
- - `username check ret` server->client
-    - sends one param: available (boolean)
+ - `channel check ret` server->client
+    - sends two params: channel, available (boolean)
  - `new channel` client<->server
     - both parties send one param: channel
  - `disconnect` client->server

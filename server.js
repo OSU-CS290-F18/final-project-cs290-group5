@@ -40,7 +40,7 @@ io.on('connection', (socket) => {
             }
         })
         .catch((err) => {
-            console.error("Unable to check if username was available:", err);
+            console.error("Unable to check if username is available:", err);
             socket.emit("db error", "unable to check if username is available");
         })
     });
@@ -67,17 +67,24 @@ io.on('connection', (socket) => {
         });
     });
 
-    // client requested username check
+    // client requested channel check
     socket.on('channel available', (channel) => {
-        if (added) return;
-
-        if (!channels.channelExists(channel)) {
-            // channel doesn't exist, send back all good
-            socket.emit("channel check ret", true);
-        } else {
-            // channel doesn't exist, send back no beuno
-            socket.emit("channel check ret", false);
-        }
+        channels.channelExists(channel)
+        .then((available) => {
+            if (available) {
+                // channel doesn't exist, send back all good
+                socket.emit("channel check ret", channel, true);
+                console.log(`${channel}: channel available`);
+            } else {
+                // channel doesn't exist, send back all good
+                socket.emit("channel check ret", channel, false);
+                console.log(`${channel}: channel unavailable`);
+            }
+        })
+        .catch((err) => {
+            console.error("Unable to check if channel is available:", err);
+            socket.emit("db error", "unable to check if channel is available");
+        })
     });
 
     // user made a new channel, store & broadcast
